@@ -45,7 +45,7 @@ export default function Hero() {
           className="max-w-2xl mb-8"
         >
           <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
-            Первая языковая школа в СНГ, где осваивают английский так же естественно, как и родной язык в детстве.
+            Языковая школа, где осваивают английский так же естественно, как и родной язык в детстве.
           </p>
         </motion.div>
 

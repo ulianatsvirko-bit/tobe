@@ -19,14 +19,26 @@ export default function CTA() {
             <span className="italic font-serif">Начните Быть.</span>
           </h2>
           
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-[var(--color-cherry)] transition-all hover:bg-gray-100 hover:shadow-2xl"
-          >
-            Записаться на встречу и проверить свой уровень
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </motion.button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-gray-900 transition-all hover:bg-gray-100 hover:shadow-2xl"
+            >
+              Записаться на пробный урок
+              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </motion.button>
+            <motion.a
+              href="https://t.me/tsvirkouliana"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 rounded-full border border-white/40 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10"
+            >
+              Задать вопрос в Telegram
+            </motion.a>
+          </div>
           <p className="mt-6 text-white/60 text-sm italic font-serif">Это бесплатно и ни к чему вас не обязывает</p>
         </motion.div>
       </div>
