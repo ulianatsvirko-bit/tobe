@@ -70,6 +70,14 @@ export default function LessonExample() {
                     <span className="text-xs text-white/80 uppercase tracking-widest italic drop-shadow-sm">The 4C Framework</span>
                     <span className="h-px w-12 bg-white/40"></span>
                   </div>
+                  <div className="mt-10 flex justify-center">
+                    <img
+                      src="/lesson-photo.jpg"
+                      alt="Пример урока ToBe"
+                      className="w-full max-w-2xl rounded-3xl shadow-2xl object-cover border border-white/20"
+                      style={{ maxHeight: '420px', objectPosition: 'center' }}
+                    />
+                  </div>
                 </div>
 
                 <div className="relative max-w-[90rem] mx-auto">
