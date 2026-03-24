@@ -80,9 +80,9 @@ export default function Method() {
                className="relative flex flex-col justify-center items-center"
              >
                <img 
-                 src="https://i.ibb.co/wGPnyJK/106-removebg-preview-2.png" 
-                 alt="Natural learning process" 
-                 className="w-4/5 h-auto object-contain drop-shadow-2xl mb-8"
+                 src="/method-photo.jpg" 
+                 alt="Живой урок ToBe" 
+                 className="w-4/5 h-auto object-cover rounded-3xl drop-shadow-2xl mb-8"
                />
                <div className="text-center w-full">
                  <p className="text-lg md:text-xl font-medium text-white/90 mb-6 drop-shadow-md">
