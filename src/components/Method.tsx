@@ -29,7 +29,7 @@ export default function Method() {
       backgroundAttachment: 'scroll'
     }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div>
             <span className="text-white/90 font-bold tracking-wide uppercase text-sm flex items-center gap-2 drop-shadow-md">
               <span className="h-px w-8 bg-white/50"></span>
@@ -47,7 +47,7 @@ export default function Method() {
               "Вспомните: в детстве вы не учили родной язык по учебникам — вы просто познавали мир."
             </p>
             
-            <div className="grid grid-cols-1 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 gap-4 sm:gap-6">
               {features.map((feature, idx) => (
                 <motion.div 
                   key={idx}
@@ -55,23 +55,37 @@ export default function Method() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.2 }}
                   viewport={{ once: true }}
-                  className="flex gap-6 bg-[#FDFBF7]/95 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
+                  className="flex gap-4 sm:gap-6 bg-[#FDFBF7]/95 backdrop-blur-md p-4 sm:p-6 rounded-2xl border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-300 group"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[var(--color-cherry)] border border-gray-100/50 group-hover:scale-110 group-hover:bg-[var(--color-cherry)] group-hover:text-white transition-all duration-500">
-                    <feature.icon className="h-6 w-6" />
+                  <div className="flex-shrink-0 h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[var(--color-cherry)] border border-gray-100/50 group-hover:scale-110 group-hover:bg-[var(--color-cherry)] group-hover:text-white transition-all duration-500">
+                    <feature.icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 text-base leading-relaxed">
+                    <h3 className="text-base sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                       {feature.desc}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Mobile-only CTA button */}
+            <div className="mt-6 lg:hidden">
+              <Link to="/method">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#FDFBF7]/90 backdrop-blur-md border border-white/40 px-6 py-3.5 text-sm font-bold text-gray-900 transition-all shadow-xl hover:bg-white hover:text-[var(--color-cherry)]"
+                >
+                  Узнать подробнее про метод
+                  <ArrowRight className="h-4 w-4" />
+                </motion.button>
+              </Link>
+            </div>
           </div>
           
-          <div className="relative">
+          <div className="relative hidden lg:block">
              <div className="aspect-square rounded-full bg-white/10 blur-3xl absolute inset-0 animate-pulse"></div>
              <motion.div 
                initial={{ scale: 0.9, opacity: 0 }}

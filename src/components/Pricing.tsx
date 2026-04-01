@@ -52,11 +52,11 @@ export default function Pricing() {
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-white">
+    <section id="pricing" className="py-14 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">Форматы и стоимость обучения</h2>
-          <p className="text-xl text-gray-600">Выберите свой ритм погружения</p>
+        <div className="mb-10 sm:mb-16 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl mb-3 sm:mb-4">Форматы и стоимость</h2>
+          <p className="text-base sm:text-xl text-gray-600">Выберите свой ритм погружения</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
@@ -69,7 +69,7 @@ export default function Pricing() {
               viewport={{ once: true }}
               className={`relative rounded-3xl p-6 sm:p-8 overflow-hidden ${
                 plan.highlight 
-                  ? 'text-white shadow-2xl ring-4 ring-[var(--color-cherry)]/20 lg:scale-105 z-10' 
+                  ? 'text-white shadow-2xl ring-4 ring-[var(--color-cherry)]/20 lg:scale-[1.03] z-10' 
                   : 'bg-white text-gray-900 border border-gray-200 shadow-lg'
               }`}
             >
@@ -85,7 +85,7 @@ export default function Pricing() {
               
               <div className="relative z-10">
                 {plan.highlight && (
-                  <div className="mb-4 lg:mb-0 lg:absolute lg:-top-4 lg:left-1/2 lg:-translate-x-1/2 inline-block lg:block rounded-full bg-[var(--color-cherry)] px-4 py-1 text-sm font-bold text-white uppercase tracking-wide shadow-lg">
+                  <div className="mb-4 lg:mb-0 lg:absolute lg:-top-4 lg:left-1/2 lg:-translate-x-1/2 inline-flex rounded-full bg-[var(--color-cherry)] px-4 py-1 text-xs sm:text-sm font-bold text-white uppercase tracking-wide shadow-lg">
                     {plan.tag}
                   </div>
                 )}
@@ -122,7 +122,7 @@ export default function Pricing() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
-                className={`w-full rounded-xl py-4 text-sm font-bold transition-all ${
+                className={`w-full rounded-xl py-4 min-h-[52px] text-sm font-bold transition-all ${
                   plan.highlight 
                     ? 'bg-[var(--color-cherry)] text-white hover:bg-[var(--color-cherry-light)]' 
                     : 'bg-gray-100 text-gray-900 hover:bg-gray-200'

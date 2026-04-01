@@ -34,21 +34,21 @@ export default function Principles() {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden" style={{
+    <section className="py-14 sm:py-24 relative overflow-hidden" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'scroll'
     }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-20 text-center max-w-3xl mx-auto">
+        <div className="mb-10 sm:mb-20 text-center max-w-3xl mx-auto">
           <span className="text-white/90 font-bold tracking-wider uppercase text-sm flex items-center justify-center gap-3 mb-4 drop-shadow-md">
             <span className="h-px w-12 bg-white/50"></span>
             Принцип «4C»
             <span className="h-px w-12 bg-white/50"></span>
           </span>
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6 text-white drop-shadow-lg">Почему это работает?</h2>
-          <p className="text-xl text-white/90 leading-relaxed drop-shadow-md">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl mb-4 sm:mb-6 text-white drop-shadow-lg">Почему это работает?</h2>
+          <p className="text-base sm:text-xl text-white/90 leading-relaxed drop-shadow-md">
             Четыре основы ToBe, которые делают обучение не только эффективным, но и по-настоящему увлекательным.
           </p>
         </div>
@@ -61,7 +61,7 @@ export default function Principles() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, margin: "-50px" }}
-              className="group relative bg-[#FDFBF7]/95 backdrop-blur-md rounded-[2rem] p-6 md:p-8 overflow-hidden border border-white/40 hover:border-[var(--color-cherry)]/30 hover:shadow-2xl hover:shadow-[var(--color-cherry)]/20 transition-all duration-500 shadow-xl"
+              className="group relative bg-[#FDFBF7]/95 backdrop-blur-md rounded-2xl sm:rounded-[2rem] p-5 md:p-8 overflow-hidden border border-white/40 hover:border-[var(--color-cherry)]/30 hover:shadow-2xl hover:shadow-[var(--color-cherry)]/20 transition-all duration-500 shadow-xl"
             >
               {/* Huge Background Number */}
               <div className="absolute -top-4 -right-4 text-[100px] font-serif font-black text-gray-900/[0.03] group-hover:text-[var(--color-cherry)]/[0.05] transition-colors duration-500 leading-none select-none">

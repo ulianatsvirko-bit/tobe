@@ -9,7 +9,7 @@ export default function Tracks() {
   ];
 
   return (
-    <section id="tracks" className="pt-24 pb-16 overflow-hidden relative" style={{
+    <section id="tracks" className="pt-16 sm:pt-24 pb-12 sm:pb-16 overflow-hidden relative" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
@@ -19,7 +19,7 @@ export default function Tracks() {
         {/* Section Header */}
         <div className="mb-12 md:mb-16 max-w-3xl">
           <span className="text-white/90 font-semibold tracking-widest uppercase text-xs mb-4 block drop-shadow-md">Форматы обучения</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
             Как мы выбираем темы?
           </h2>
         </div>
@@ -76,24 +76,24 @@ export default function Tracks() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="group relative bg-[#FDFBF7]/95 backdrop-blur-md p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-[#FDFBF7]/95 backdrop-blur-md p-5 sm:p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500"
               >
-                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
-                  <div className="shrink-0 w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100/50 flex items-center justify-center text-gray-400 group-hover:text-[var(--color-cherry)] group-hover:bg-[var(--color-cherry)]/5 group-hover:border-[var(--color-cherry)]/20 transition-all duration-500">
-                    <Users className="w-8 h-8" />
+                <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
+                  <div className="shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-sm border border-gray-100/50 flex items-center justify-center text-gray-400 group-hover:text-[var(--color-cherry)] group-hover:bg-[var(--color-cherry)]/5 group-hover:border-[var(--color-cherry)]/20 transition-all duration-500">
+                    <Users className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
                       <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">Комплексные треки</span>
                       <span className="w-8 h-[1px] bg-gray-300 transition-all duration-500 group-hover:w-12 group-hover:bg-[var(--color-cherry)]"></span>
                     </div>
-                    <h4 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4 group-hover:text-[var(--color-cherry)] transition-colors duration-500">
+                    <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-900 mb-3 sm:mb-4 group-hover:text-[var(--color-cherry)] transition-colors duration-500">
                       В мини-группах
                     </h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
                       Мы объединяем темы в логичные блоки по интересам группы. Например, <span className="font-medium text-gray-900">«Творческий трек»</span> (Музыка, Искусство, Кино), <span className="font-medium text-gray-900">«Бизнес-трек»</span> (Маркетинг, Переговоры) или <span className="font-medium text-gray-900">«Общий»</span> (Психология, Культура).
                     </p>
-                    <a href="#pricing" className="inline-flex items-center gap-2 mt-6 text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-[var(--color-cherry)] transition-colors group/link">
+                    <a href="#pricing" className="inline-flex items-center gap-2 mt-4 sm:mt-6 text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-[var(--color-cherry)] transition-colors group/link">
                       Смотреть цены
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                     </a>
@@ -107,24 +107,24 @@ export default function Tracks() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
                 viewport={{ once: true }}
-                className="group relative bg-[#FDFBF7]/95 backdrop-blur-md p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-[#FDFBF7]/95 backdrop-blur-md p-5 sm:p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500"
               >
-                <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
-                  <div className="shrink-0 w-16 h-16 rounded-2xl bg-white shadow-sm border border-gray-100/50 flex items-center justify-center text-gray-400 group-hover:text-blue-600 group-hover:bg-blue-50 group-hover:border-blue-200 transition-all duration-500">
-                    <User className="w-8 h-8" />
+                <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
+                  <div className="shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-sm border border-gray-100/50 flex items-center justify-center text-gray-400 group-hover:text-blue-600 group-hover:bg-blue-50 group-hover:border-blue-200 transition-all duration-500">
+                    <User className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   <div>
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
                       <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">Полная свобода</span>
                       <span className="w-8 h-[1px] bg-gray-300 transition-all duration-500 group-hover:w-12 group-hover:bg-blue-600"></span>
                     </div>
-                    <h4 className="text-3xl md:text-4xl font-serif text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-500">
+                    <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-900 mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors duration-500">
                       Индивидуально
                     </h4>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
                       Вы сами собираете свой идеальный курс. Хотите сегодня обсуждать маркетинг, а на следующем занятии — кинематограф? Легко. Мы адаптируем программу точечно под ваши текущие интересы.
                     </p>
-                    <a href="#pricing" className="inline-flex items-center gap-2 mt-6 text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-blue-600 transition-colors group/link">
+                    <a href="#pricing" className="inline-flex items-center gap-2 mt-4 sm:mt-6 text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-blue-600 transition-colors group/link">
                       Смотреть цены
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                     </a>

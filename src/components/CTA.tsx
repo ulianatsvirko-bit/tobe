@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function CTA() {
   return (
-    <section id="cta" className="py-24 bg-[var(--color-cherry)] text-white relative overflow-hidden">
+    <section id="cta" className="py-14 sm:py-24 bg-[var(--color-cherry)] text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-black/10" />
       <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
@@ -14,7 +14,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-6xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight">
+          <h2 className="text-3xl sm:text-6xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight">
             Хватит тратить время на скучную учёбу.{' '}
             <span className="italic font-serif block sm:inline">Начните Быть.</span>
           </h2>

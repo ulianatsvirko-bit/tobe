@@ -47,7 +47,7 @@ export default function LessonExample() {
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'scroll'
     }}>
       <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8 relative z-10">
         

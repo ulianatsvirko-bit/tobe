@@ -3,16 +3,16 @@ import { Award, GraduationCap, Globe } from 'lucide-react';
 
 export default function Founder() {
   return (
-    <section className="py-24 bg-gray-50 overflow-hidden">
+    <section className="py-14 sm:py-24 bg-gray-50 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 items-center">
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl relative group">
+            <div className="aspect-[4/3] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl relative group">
               <img 
                 src="https://i.ibb.co/6JRVBxtS/photo-2025-05-02-20-56-05.jpg" 
                 alt="Ульяна - Основатель ToBe." 
@@ -34,7 +34,7 @@ export default function Founder() {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">Кто вас обучает?</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl">Кто вас обучает?</h2>
               <p className="text-xl font-medium text-[var(--color-cherry)]">Ульяна Цвирко</p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Ульяна создала ToBe с одной целью — сделать изучение английского таким же естественным, как познание мира в детстве. Её подход объединяет лучшие мировые практики CLIL-обучения с индивидуальным подходом к каждому студенту.

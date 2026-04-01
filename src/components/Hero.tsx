@@ -12,14 +12,14 @@ export default function Hero() {
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/40 z-[1]" />
       {/* Content */}
-      <div className="relative z-[2] flex h-full flex-col justify-center px-5 sm:px-6 lg:px-8 mx-auto max-w-7xl w-full items-center text-center sm:items-start sm:text-left">
+      <div className="relative z-[2] flex h-full flex-col justify-center px-5 sm:px-6 lg:px-8 mx-auto max-w-7xl w-full items-center text-center sm:items-start sm:text-left pb-8 sm:pb-0">
         
         {/* Micro-label */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center justify-center sm:justify-start gap-4 mb-4"
+          className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4 mb-3 sm:mb-4"
         >
           <span className="h-px w-12 bg-[var(--color-cherry)]"></span>
           <span className="text-white/80 uppercase tracking-[0.2em] text-xs font-bold">
@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-4"
         >
-          <h1 className="font-serif text-[22vw] sm:text-[140px] md:text-[180px] leading-[0.9] text-white tracking-tighter">
+          <h1 className="font-serif text-[18vw] xs:text-[17vw] sm:text-[140px] md:text-[180px] leading-[0.85] text-white tracking-tighter">
             ToBe<span className="text-[var(--color-cherry)]">.</span>
           </h1>
         </motion.div>
@@ -44,9 +44,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-sm sm:max-w-2xl mb-8"
+          className="max-w-xs sm:max-w-2xl mb-6 sm:mb-8"
         >
-          <p className="text-base sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
+          <p className="text-sm sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
             Языковая школа, где осваивают английский так же естественно, как родной язык в детстве.
           </p>
         </motion.div>
@@ -56,11 +56,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 w-full sm:w-auto"
+          className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-6 w-full sm:w-auto"
         >
           <a 
             href="#cta" 
-            className="group relative inline-flex items-center justify-center bg-white text-black px-8 py-4 text-sm uppercase tracking-widest font-semibold overflow-hidden rounded-full transition-all hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto"
+            className="group relative inline-flex items-center justify-center bg-white text-black px-8 py-3.5 sm:py-4 text-sm uppercase tracking-widest font-semibold overflow-hidden rounded-full transition-all hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto"
           >
             <span className="relative z-10 flex items-center gap-3 transition-colors group-hover:text-white">
               Записаться
@@ -71,7 +71,7 @@ export default function Hero() {
           
           <a 
             href="#pricing" 
-            className="inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-widest font-semibold text-white border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors duration-500 w-full sm:w-auto"
+            className="inline-flex items-center justify-center px-8 py-3.5 sm:py-4 text-sm uppercase tracking-widest font-semibold text-white border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors duration-500 w-full sm:w-auto"
           >
             Форматы
           </a>

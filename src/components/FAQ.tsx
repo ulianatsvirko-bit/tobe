@@ -25,15 +25,15 @@ export default function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-24 bg-gray-50">
+    <section id="faq" className="py-14 sm:py-24 bg-gray-50">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
+        <div className="mb-10 sm:mb-16 text-center">
           <span className="text-[var(--color-cherry)] font-semibold tracking-wide uppercase text-sm flex items-center justify-center gap-2">
             <span className="h-px w-4 bg-[var(--color-cherry)]"></span>
             FAQ
             <span className="h-px w-4 bg-[var(--color-cherry)]"></span>
           </span>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl mb-4">Частые вопросы</h2>
+          <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl mb-4">Частые вопросы</h2>
           <p className="text-xs text-gray-400 italic">Если вы не нашли ответ, напишите нам в Telegram</p>
         </div>
 
@@ -49,9 +49,9 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="flex w-full items-center justify-between p-6 text-left transition-colors hover:bg-gray-50"
+                className="flex w-full items-center justify-between px-5 py-4 sm:p-6 text-left transition-colors hover:bg-gray-50"
               >
-                <span className="text-lg font-semibold text-gray-900">{faq.q}</span>
+                <span className="text-base sm:text-lg font-semibold text-gray-900 pr-3">{faq.q}</span>
                 {openIndex === idx ? (
                   <Minus className="h-5 w-5 text-[var(--color-cherry)]" />
                 ) : (
@@ -66,7 +66,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="px-6 pb-6 pt-0 text-gray-600 leading-relaxed border-t border-gray-100 mt-2">
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 text-gray-600 leading-relaxed text-sm sm:text-base border-t border-gray-100 mt-2">
                       {faq.a}
                     </div>
                   </motion.div>
