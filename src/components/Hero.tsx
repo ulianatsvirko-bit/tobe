@@ -3,21 +3,23 @@ import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden" style={{
+    <section className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'scroll'
     }}>
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/40 z-[1]" />
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-center px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl w-full items-center text-center sm:items-start sm:text-left">
+      <div className="relative z-[2] flex h-full flex-col justify-center px-5 sm:px-6 lg:px-8 mx-auto max-w-7xl w-full items-center text-center sm:items-start sm:text-left">
         
         {/* Micro-label */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden sm:flex items-center justify-start gap-4 mb-4"
+          className="flex items-center justify-center sm:justify-start gap-4 mb-4"
         >
           <span className="h-px w-12 bg-[var(--color-cherry)]"></span>
           <span className="text-white/80 uppercase tracking-[0.2em] text-xs font-bold">
@@ -32,7 +34,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mb-4"
         >
-          <h1 className="font-serif text-[18vw] sm:text-[140px] md:text-[180px] leading-[0.85] text-white tracking-tighter">
+          <h1 className="font-serif text-[22vw] sm:text-[140px] md:text-[180px] leading-[0.9] text-white tracking-tighter">
             ToBe<span className="text-[var(--color-cherry)]">.</span>
           </h1>
         </motion.div>
@@ -42,10 +44,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-2xl mb-8"
+          className="max-w-sm sm:max-w-2xl mb-8"
         >
-          <p className="text-xl sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
-            Языковая школа, где осваивают английский так же естественно, как и родной язык в детстве.
+          <p className="text-base sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
+            Языковая школа, где осваивают английский так же естественно, как родной язык в детстве.
           </p>
         </motion.div>
 
@@ -81,7 +83,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-8 z-10"
+        className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-8 z-[2]"
       >
         <span 
           className="text-white/50 text-xs uppercase tracking-[0.3em] whitespace-nowrap"

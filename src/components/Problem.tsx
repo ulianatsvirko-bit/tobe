@@ -3,10 +3,10 @@ import { XCircle, CheckCircle, Brain, Lightbulb } from 'lucide-react';
 
 export default function Problem() {
   return (
-    <section className="py-24 bg-white text-gray-900">
+    <section className="py-16 sm:py-24 bg-white text-gray-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4 relative inline-block">
+        <div className="mb-10 sm:mb-16 text-center">
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight mb-4 relative inline-block">
             Почему обычная учеба надоедает?
             <div className="absolute -bottom-2 right-0 w-1/2 h-1 bg-gray-200 rounded-full" />
           </h2>
@@ -16,10 +16,16 @@ export default function Problem() {
           </p>
         </div>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center relative">
-          {/* VS Badge */}
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8 items-center relative">
+          {/* VS Badge desktop */}
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden lg:flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-xl border-4 border-gray-50 text-xl font-black text-gray-300 italic">
             VS
+          </div>
+          {/* VS divider mobile */}
+          <div className="lg:hidden flex items-center gap-4 order-2">
+            <div className="flex-1 h-px bg-gray-200" />
+            <span className="text-base font-black text-gray-300 italic">VS</span>
+            <div className="flex-1 h-px bg-gray-200" />
           </div>
 
           {/* The Old Way (LOTS) */}

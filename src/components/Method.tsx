@@ -22,11 +22,11 @@ export default function Method() {
   ];
 
   return (
-    <section id="method" className="py-24 overflow-hidden relative" style={{
+    <section id="method" className="py-16 sm:py-24 overflow-hidden relative" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'scroll'
     }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -82,7 +82,7 @@ export default function Method() {
                <img 
                  src="/method-photo.jpg" 
                  alt="Живой урок ToBe" 
-                 className="w-4/5 h-auto object-cover rounded-3xl drop-shadow-2xl mb-8"
+                 className="w-4/5 h-auto object-cover rounded-3xl drop-shadow-2xl mb-8 mx-auto"
                />
                <div className="text-center w-full">
                  <p className="text-lg md:text-xl font-medium text-white/90 mb-6 drop-shadow-md">

@@ -98,8 +98,9 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden z-50"
+            className="md:hidden z-50 p-2 -mr-2 rounded-xl"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Меню"
           >
             {mobileMenuOpen ? (
               <X className={`h-6 w-6 ${isScrolled || !isHome ? 'text-gray-900' : 'text-white'}`} />
@@ -118,7 +119,7 @@ export default function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-white md:hidden pt-24 px-6"
+            className="fixed inset-0 z-40 bg-white md:hidden pt-24 px-6 overflow-y-auto safe-area-inset"
           >
             <nav className="grid grid-cols-2 gap-4 text-center">
               {navLinks.map((link) => (

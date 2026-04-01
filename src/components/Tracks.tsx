@@ -13,7 +13,7 @@ export default function Tracks() {
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'scroll'
     }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -27,7 +27,7 @@ export default function Tracks() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Description & Topics Cloud */}
           <div className="lg:col-span-5">
-            <div className="sticky top-32">
+            <div className="lg:sticky lg:top-32">
               <p className="text-xl text-white/90 leading-relaxed mb-10 drop-shadow-md">
                 Мы не ограничиваемся учебниками. Выбирайте темы, которые интересны именно вам, и погружайтесь в язык через них.
               </p>
@@ -39,13 +39,8 @@ export default function Tracks() {
                     key={idx}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    animate={{
-                      scale: [1, 1.04, 1],
-                      y: [0, idx % 2 === 0 ? -3 : 3, 0],
-                    }}
                     transition={{ 
-                      initial: { delay: idx * 0.05, type: "spring", stiffness: 100 },
-                      animate: { duration: 2.5 + (idx % 4) * 0.5, repeat: Infinity, ease: "easeInOut", delay: (idx % 5) * 0.2 }
+                      delay: idx * 0.05, type: "spring", stiffness: 100
                     }}
                     viewport={{ once: true }}
                     whileHover={{ 

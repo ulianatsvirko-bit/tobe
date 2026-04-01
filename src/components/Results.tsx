@@ -25,11 +25,11 @@ export default function Results() {
   ];
 
   return (
-    <section id="results" className="py-24 relative overflow-hidden" style={{
+    <section id="results" className="py-16 sm:py-24 relative overflow-hidden" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'scroll'
     }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-16 text-center">
@@ -48,10 +48,10 @@ export default function Results() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="group relative rounded-3xl border border-white/20 bg-white/10 backdrop-blur-md p-6 md:p-8 hover:border-white/50 hover:bg-white/20 hover:shadow-xl hover:shadow-white/10 transition-all duration-300"
+              className="group relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md p-5 md:p-8 hover:border-white/50 hover:bg-white/20 hover:shadow-xl hover:shadow-white/10 transition-all duration-300"
             >
               <div className="mb-3">
-                <span className="text-5xl font-black text-white leading-none">{res.metric}</span>
+                <span className="text-4xl sm:text-5xl font-black text-white leading-none">{res.metric}</span>
               </div>
               <div className="mb-4">
                 <span className="text-sm font-bold text-white/70 uppercase tracking-widest">{res.period}</span>

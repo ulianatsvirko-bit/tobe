@@ -59,7 +59,7 @@ export default function Pricing() {
           <p className="text-xl text-gray-600">Выберите свой ритм погружения</p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3 items-start">
+        <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
           {plans.map((plan, idx) => (
             <motion.div 
               key={idx}
@@ -67,9 +67,9 @@ export default function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.2 }}
               viewport={{ once: true }}
-              className={`relative rounded-3xl p-8 overflow-hidden ${
+              className={`relative rounded-3xl p-6 sm:p-8 overflow-hidden ${
                 plan.highlight 
-                  ? 'text-white shadow-2xl ring-4 ring-[var(--color-cherry)]/20 scale-105 z-10' 
+                  ? 'text-white shadow-2xl ring-4 ring-[var(--color-cherry)]/20 lg:scale-105 z-10' 
                   : 'bg-white text-gray-900 border border-gray-200 shadow-lg'
               }`}
             >
@@ -85,7 +85,7 @@ export default function Pricing() {
               
               <div className="relative z-10">
                 {plan.highlight && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-[var(--color-cherry)] px-4 py-1 text-sm font-bold text-white uppercase tracking-wide shadow-lg">
+                  <div className="mb-4 lg:mb-0 lg:absolute lg:-top-4 lg:left-1/2 lg:-translate-x-1/2 inline-block lg:block rounded-full bg-[var(--color-cherry)] px-4 py-1 text-sm font-bold text-white uppercase tracking-wide shadow-lg">
                     {plan.tag}
                   </div>
                 )}

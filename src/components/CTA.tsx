@@ -14,9 +14,9 @@ export default function CTA() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-6xl mb-6 sm:mb-8">
-            Хватит тратить время на скучную учебу. <br />
-            <span className="italic font-serif">Начните Быть.</span>
+          <h2 className="text-2xl sm:text-6xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight">
+            Хватит тратить время на скучную учёбу.{' '}
+            <span className="italic font-serif block sm:inline">Начните Быть.</span>
           </h2>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
