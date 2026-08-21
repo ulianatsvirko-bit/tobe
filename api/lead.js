@@ -27,10 +27,9 @@ export function validateLead(body) {
 export function formatMessage(lead) {
   return [
     `ToBe · ${lead.name}`,
-    `Возраст: ${lead.age}`,
-    `Формат: ${lead.format}`,
-    `Цель: ${lead.goal || 'не указана'}`,
-  ].join(' · ');
+    `${lead.age} · ${lead.format}`,
+    lead.goal || 'Цель не указана',
+  ].join(' · ').slice(0, 80);
 }
 
 export function createLeadHandler({ fetchImpl = globalThis.fetch } = {}) {
