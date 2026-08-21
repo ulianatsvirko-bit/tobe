@@ -70,6 +70,6 @@ test('lead API accepts the school form contract and formats Telegram delivery', 
     submissionId: 'lead-contract-123',
   });
   assert.ok(lead);
-  assert.match(formatMessage(lead), /Новая заявка с сайта ToBe/);
+  assert.match(formatMessage(lead), /ToBe · Анна/);
   assert.equal(validateLead({ ...lead, format: 'Неизвестный формат' }), null);
 });

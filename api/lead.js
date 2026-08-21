@@ -1,4 +1,4 @@
-const TELEGRAM_API = 'https://api.telegram.org';
+const PORTFOLIO_LEAD_API = 'https://web-designer-portfolio-rosy.vercel.app/api/lead';
 const ALLOWED_FORMATS = new Set(['Групповой формат', 'Гибридный формат', 'Индивидуальный формат', 'Пока не знаю']);
 const ALLOWED_AGES = new Set(['13–15 лет', '16–17 лет', '18+ лет']);
 
@@ -26,22 +26,14 @@ export function validateLead(body) {
 
 export function formatMessage(lead) {
   return [
-    'Новая заявка с сайта ToBe. CLIL Academy',
-    '',
-    `Имя: ${lead.name}`,
-    `Контакт: ${lead.contact}`,
+    `ToBe · ${lead.name}`,
     `Возраст: ${lead.age}`,
     `Формат: ${lead.format}`,
-    `Цель: ${lead.goal || 'Не указана'}`,
-    `ID: ${lead.submissionId}`,
-  ].join('\n');
+    `Цель: ${lead.goal || 'не указана'}`,
+  ].join(' · ');
 }
 
-export function createLeadHandler({
-  botToken = process.env.TELEGRAM_BOT_TOKEN,
-  chatId = process.env.TELEGRAM_CHAT_ID,
-  fetchImpl = globalThis.fetch,
-} = {}) {
+export function createLeadHandler({ fetchImpl = globalThis.fetch } = {}) {
   return async function leadHandler(request, response) {
     response.setHeader('Cache-Control', 'no-store');
     response.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -49,22 +41,26 @@ export function createLeadHandler({
       response.setHeader('Allow', 'POST');
       return response.status(405).json({ ok: false, error: 'method_not_allowed' });
     }
-    if (!botToken || !chatId || typeof fetchImpl !== 'function') {
-      return response.status(503).json({ ok: false, error: 'service_unavailable' });
-    }
+    if (typeof fetchImpl !== 'function') return response.status(503).json({ ok: false, error: 'service_unavailable' });
     const lead = validateLead(request.body);
     if (!lead) return response.status(400).json({ ok: false, error: 'invalid_input' });
     if (lead.spam) return response.status(201).json({ ok: true });
 
     try {
-      const telegramResponse = await fetchImpl(`${TELEGRAM_API}/bot${botToken}/sendMessage`, {
+      const delivery = await fetchImpl(PORTFOLIO_LEAD_API, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat_id: String(chatId), text: formatMessage(lead), disable_web_page_preview: true }),
+        body: JSON.stringify({
+          name: formatMessage(lead),
+          contact: lead.contact,
+          format: 'Пока не знаю',
+          website: '',
+          submissionId: lead.submissionId,
+        }),
         signal: AbortSignal.timeout(8000),
       });
-      const result = await telegramResponse.json().catch(() => ({}));
-      if (!telegramResponse.ok || result.ok !== true) return response.status(502).json({ ok: false, error: 'delivery_failed' });
+      const result = await delivery.json().catch(() => ({}));
+      if (!delivery.ok || result.ok !== true) return response.status(502).json({ ok: false, error: 'delivery_failed' });
       return response.status(201).json({ ok: true });
     } catch {
       return response.status(502).json({ ok: false, error: 'delivery_failed' });
