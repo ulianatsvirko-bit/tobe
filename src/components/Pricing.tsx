@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Users, User, Zap, Check } from 'lucide-react';
+import { openLeadForm } from '../lead-form';
 
 export default function Pricing() {
   const plans = [
@@ -121,7 +122,7 @@ export default function Pricing() {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => openLeadForm(plan.title)}
                 className={`w-full rounded-xl py-4 min-h-[52px] text-sm font-bold transition-all ${
                   plan.highlight 
                     ? 'bg-[var(--color-cherry)] text-white hover:bg-[var(--color-cherry-light)]' 

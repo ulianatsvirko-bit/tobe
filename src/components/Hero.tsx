@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { openLeadForm } from '../lead-form';
 
 export default function Hero() {
   return (
@@ -47,7 +48,7 @@ export default function Hero() {
           className="max-w-xs sm:max-w-2xl mb-6 sm:mb-8"
         >
           <p className="text-sm sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
-            Языковая школа, где осваивают английский так же естественно, как родной язык в детстве.
+            Английский для подростков и взрослых через темы, которые действительно хочется обсуждать.
           </p>
         </motion.div>
 
@@ -58,8 +59,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-6 w-full sm:w-auto"
         >
-          <a 
-            href="#cta" 
+          <button
+            type="button"
+            onClick={() => openLeadForm()}
             className="group relative inline-flex items-center justify-center bg-white text-black px-8 py-3.5 sm:py-4 text-sm uppercase tracking-widest font-semibold overflow-hidden rounded-full transition-all hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto"
           >
             <span className="relative z-10 flex items-center gap-3 transition-colors group-hover:text-white">
@@ -67,7 +69,7 @@ export default function Hero() {
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </span>
             <div className="absolute inset-0 bg-[var(--color-cherry)] transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
-          </a>
+          </button>
           
           <a 
             href="#pricing" 

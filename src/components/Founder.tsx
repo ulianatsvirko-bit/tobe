@@ -72,23 +72,6 @@ export default function Founder() {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3 p-5 rounded-2xl bg-white shadow-sm border border-gray-100 sm:col-span-2">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-[var(--color-cherry)]/10 text-[var(--color-cherry)]">
-                    <GraduationCap className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900 leading-tight">ВШЭ Профессиональная переподготовка</p>
-                    <p className="text-xs text-gray-500">Москва · Высшая Школа Экономики</p>
-                  </div>
-                </div>
-                <div className="pl-1">
-                  <p className="font-medium text-gray-800 mb-1">Преподаватель английского языка</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    Программа профессиональной переподготовки, направленная на получение квалификации и диплома преподавателя английского языка.
-                  </p>
-                </div>
-              </div>
             </div>
           </motion.div>
         </div>

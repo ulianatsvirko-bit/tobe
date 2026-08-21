@@ -1,5 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "functions": {
+    "api/lead.js": {
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }

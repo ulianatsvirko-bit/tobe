@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { openLeadForm } from '../lead-form';
 
 export default function CTA() {
   return (
@@ -21,6 +22,8 @@ export default function CTA() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button
+              type="button"
+              onClick={() => openLeadForm()}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-gray-900 transition-all hover:bg-gray-100 hover:shadow-2xl"

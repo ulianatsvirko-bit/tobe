@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { openLeadForm } from '../lead-form';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -85,7 +86,7 @@ export default function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => handleNavigation('cta')}
+              onClick={() => openLeadForm()}
               className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all ${
                 isScrolled || !isHome
                   ? 'bg-[var(--color-cherry)] text-white hover:bg-[var(--color-cherry-dark)]' 
@@ -132,7 +133,7 @@ export default function Header() {
                 </button>
               ))}
               <button
-                onClick={() => handleNavigation('cta')}
+                onClick={() => { setMobileMenuOpen(false); openLeadForm(); }}
                 className="col-span-2 mt-2 rounded-full bg-[var(--color-cherry)] px-8 py-4 text-lg font-bold text-white shadow-lg shadow-[var(--color-cherry)]/30"
               >
                 Записаться
