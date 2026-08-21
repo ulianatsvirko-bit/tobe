@@ -94,6 +94,12 @@ input, textarea, button, select {
   transition-delay: 0ms !important;
 }
 
+/* Motion can leave off-screen elements in its initial inline state when
+   IntersectionObserver/timing stalls. Force visible, settled content. */
+[style*="opacity: 0"] { opacity: 1 !important; }
+[style*="transform: translate"],
+[style*="transform: scale"] { transform: none !important; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }

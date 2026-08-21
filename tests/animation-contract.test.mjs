@@ -16,6 +16,9 @@ test('global CSS prevents delayed, looping and flickering transitions', () => {
   assert.match(css, /animation-iteration-count: 1 !important/);
   assert.match(css, /transition-duration: 0\.01ms !important/);
   assert.match(css, /transition-delay: 0ms !important/);
+  assert.match(css, /\[style\*="opacity: 0"\] \{ opacity: 1 !important; \}/);
+  assert.match(css, /\[style\*="transform: translate"\]/);
+  assert.match(css, /\[style\*="transform: scale"\]/);
 });
 
 test('scrolling stays smooth without hiding or fading content', () => {
