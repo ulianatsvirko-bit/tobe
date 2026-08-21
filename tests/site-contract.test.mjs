@@ -6,7 +6,6 @@ const read = (path) => fs.readFileSync(new URL(`../${path}`, import.meta.url), '
 const app = read('src/App.tsx');
 const hero = read('src/components/Hero.tsx');
 const cta = read('src/components/CTA.tsx');
-const founder = read('src/components/Founder.tsx');
 const footer = read('src/components/Footer.tsx');
 const pricing = read('src/components/Pricing.tsx');
 const html = read('index.html');
@@ -32,12 +31,10 @@ test('broken AI chatbot is removed and replaced with Telegram access', () => {
   assert.doesNotMatch(read('package.json'), /@google\/genai/);
 });
 
-test('founder stays but HSE block is removed', () => {
-  assert.match(founder, /Ульяна Цвирко/);
-  assert.match(founder, /CAE Score A/);
-  assert.match(founder, /TESOL/);
-  assert.match(founder, /TKT CLIL Band 4/);
-  assert.doesNotMatch(founder, /ВШЭ|Высшая Школа Экономики/);
+test('teacher profile block is removed from the home page', () => {
+  const home = read('src/pages/HomePage.tsx');
+  assert.doesNotMatch(home, /Founder/);
+  assert.doesNotMatch(home, /Кто вас обучает\?|Ульяна Цвирко|CAE Score A|TESOL|TKT CLIL Band 4/);
 });
 
 test('pricing remains in BYN and all format buttons open the lead form', () => {

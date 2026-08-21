@@ -4,7 +4,6 @@ import Method from '../components/Method';
 import Principles from '../components/Principles';
 import LessonExample from '../components/LessonExample';
 import Tracks from '../components/Tracks';
-import Founder from '../components/Founder';
 import Results from '../components/Results';
 import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
@@ -20,7 +19,6 @@ export default function HomePage() {
       <Principles />
       <LessonExample />
       <Tracks />
-      <Founder />
       <Results />
       <Pricing />
       <FAQ />
