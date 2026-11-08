@@ -41,7 +41,6 @@ body {
   background-color: var(--color-cream);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
-  overscroll-behavior-y: none;
 }
 }
 
@@ -216,8 +215,9 @@ button, a { touch-action: manipulation; }
   padding-right: env(safe-area-inset-right);
 }
 
+/* clip (not hidden) so body never becomes its own scroll container */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
 }
 
