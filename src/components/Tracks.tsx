@@ -1,59 +1,57 @@
-import { Shirt, Brain, Briefcase } from 'lucide-react';
+import { Title } from './ui';
 
 const tracks = [
   {
-    title: 'Fashion & Style',
-    icon: Shirt,
-    img: '/mood/fashion-books.jpg',
+    title: 'fashion & style',
+    img: '/mood/vogue-flatlay.jpg',
     desc: 'Мода как индустрия, культура и бизнес.',
-    topics: ['Почему Zara обновляет коллекции каждые 2 недели', 'Цвет и настроение: как стиль влияет на восприятие', 'Slow fashion vs fast fashion: спорим по-английски'],
+    topics: ['почему Zara обновляет коллекции каждые 2 недели', 'цвет и настроение', 'slow vs fast fashion'],
+    tone: 'bg-[var(--color-blush)]',
   },
   {
-    title: 'Psychology',
-    icon: Brain,
+    title: 'psychology',
     img: '/mood/lace-profile.jpg',
     desc: 'Как мы думаем, чувствуем и принимаем решения.',
-    topics: ['Почему мы покупаем то, что не носим', 'Привычки и прокрастинация', 'Первое впечатление и язык тела'],
+    topics: ['почему мы покупаем то, что не носим', 'привычки и прокрастинация', 'первое впечатление'],
+    tone: 'bg-white',
   },
   {
-    title: 'Business',
-    icon: Briefcase,
+    title: 'business',
     img: '/mood/nyc-skyline.jpg',
-    desc: 'Бренды, стартапы и карьера — на языке, на котором говорит бизнес.',
-    topics: ['Как устроен бренд, который хочется купить', 'Питч своей идеи за 2 минуты', 'Собеседование и личный бренд'],
+    desc: 'Бренды, стартапы и карьера — на языке бизнеса.',
+    topics: ['бренд, который хочется купить', 'питч идеи за 2 минуты', 'собеседование и личный бренд'],
+    tone: 'bg-[var(--color-blush)]',
   },
 ];
 
 export default function Tracks() {
   return (
-    <section id="tracks" className="bg-[var(--color-ivory)] py-16 sm:py-24">
+    <section id="tracks" className="paper py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center sm:mb-14">
-          <span className="kicker text-[var(--color-cherry)]">Nº 03 · Три направления</span>
-          <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">О чём мы говорим</h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            В первом сезоне — по месяцу на каждое направление. Попробуешь всё и поймёшь, что откликается больше.
-          </p>
-        </div>
+        <Title kicker="nº 03 · три направления" caps="о чём" script="мы говорим" />
+        <p className="mx-auto mt-6 max-w-xl text-center text-lg text-[var(--color-ink)]/70">
+          В первом сезоне — по месяцу на каждое направление. Попробуешь всё и поймёшь, что твоё.
+        </p>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {tracks.map((track, idx) => (
-            <div key={track.title} className="flex flex-col rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-paper)] p-6 sm:p-8">
-              <div className="-mx-6 -mt-6 mb-6 flex aspect-[3/2] items-center justify-center overflow-hidden bg-white sm:-mx-8 sm:-mt-8">
-                <img src={track.img} alt="" aria-hidden="true" className="h-full w-full object-contain p-4" />
+            <article key={track.title} className={`${track.tone} flex flex-col overflow-hidden rounded-t-[999px] rounded-b-[28px] text-[var(--color-ink)] shadow-[0_24px_50px_-28px_rgba(46,5,11,0.55)] ${idx === 1 ? 'md:-mt-6' : 'md:mt-6'}`}>
+              <div className="aspect-[4/5] overflow-hidden bg-white">
+                <img src={track.img} alt="" aria-hidden="true" className={`h-full w-full ${idx === 0 ? 'bw object-cover' : 'object-contain p-6'}`} />
               </div>
-              <p className="kicker text-gray-400">Track 0{idx + 1}</p>
-              <h3 className="mt-1 font-serif text-3xl italic">{track.title}</h3>
-              <p className="mt-2 text-gray-600">{track.desc}</p>
-              <ul className="mt-6 space-y-3 border-t border-gray-100 pt-6">
-                {track.topics.map((topic) => (
-                  <li key={topic} className="flex gap-3 text-sm text-gray-700">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-cherry)]" />
-                    {topic}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="flex flex-1 flex-col p-7">
+                <p className="kicker text-[var(--color-wine)]">track 0{idx + 1}</p>
+                <h3 className="script mt-2 text-5xl text-[var(--color-wine)]">{track.title}</h3>
+                <p className="mt-3 text-[var(--color-ink)]/70">{track.desc}</p>
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {track.topics.map((topic, i) => (
+                    <span key={topic} className={`pill ${i % 2 ? 'border border-[var(--color-ink)]/25' : 'bg-[var(--color-ink)] text-[var(--color-paper)]'}`}>
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>

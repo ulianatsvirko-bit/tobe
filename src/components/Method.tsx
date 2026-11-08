@@ -1,70 +1,61 @@
-import { BookOpen, LifeBuoy, MessagesSquare, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Title, Polaroid } from './ui';
 
 const features = [
   {
-    title: 'Сначала тема',
+    n: '01',
+    title: 'сначала тема',
     desc: 'Каждое занятие — про что-то настоящее: почему бренды выбирают определённые цвета, как работают привычки, как устроен стартап.',
-    icon: BookOpen,
   },
   {
-    title: 'Английский — по ходу дела',
+    n: '02',
+    title: 'английский — по ходу дела',
     desc: 'Ты обсуждаешь, споришь, решаешь кейсы. Слова и грамматика запоминаются, потому что нужны прямо сейчас.',
-    icon: MessagesSquare,
   },
   {
-    title: 'Опоры на каждом шаге',
+    n: '03',
+    title: 'опоры на каждом шаге',
     desc: 'Схемы, картинки и шаблоны фраз помогают говорить, даже если уровень пока не идеальный.',
-    icon: LifeBuoy,
   },
 ];
 
 export default function Method() {
   return (
-    <section id="method" className="velvet relative overflow-hidden py-16 sm:py-24">
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+    <section id="method" className="velvet relative overflow-hidden py-20 text-[var(--color-paper)] sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <span className="kicker flex items-center gap-2 text-[var(--color-gold)]">
-              <span className="h-px w-8 bg-[var(--color-gold)]/60"></span>
-              Nº 02 · Метод CLIL
-            </span>
-            <h2 className="mt-3 text-5xl italic leading-tight tracking-tight text-white sm:text-7xl">
-              Не учим язык. Учимся на нём.
-            </h2>
-            <p className="mt-6 mb-8 text-lg leading-relaxed text-white/90">
-              CLIL — подход, при котором язык изучают через предмет. Так ты одновременно узнаёшь новое и начинаешь свободнее говорить.
+            <Title kicker="nº 02 · метод clil" caps="не учим язык." script="учимся на нём" align="left" tone="light" />
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/80">
+              CLIL — подход, при котором язык изучают через предмет. Ты одновременно узнаёшь новое и начинаешь свободнее говорить.
             </p>
 
-            <div className="grid gap-4">
-              {features.map((feature) => (
-                <div key={feature.title} className="flex gap-4 rounded-sm border border-white/40 bg-[#FDFBF7]/95 p-4 shadow-xl sm:gap-6 sm:p-6">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-white text-[var(--color-cherry)] shadow-sm sm:h-12 sm:w-12">
-                    <feature.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+            <div className="mt-10 grid gap-5">
+              {features.map((f, i) => (
+                <div key={f.n} className="notebook text-[var(--color-ink)]" style={{ rotate: `${i % 2 ? 0.8 : -0.8}deg`, ['--hole' as string]: '#4A0E17' }}>
+                  <div className="flex items-baseline gap-4">
+                    <span className="display text-4xl text-[var(--color-wine)]">{f.n}</span>
+                    <h3 className="script text-4xl text-[var(--color-wine)]">{f.title}</h3>
                   </div>
-                  <div>
-                    <h3 className="mb-1 text-base font-bold text-gray-900 sm:text-xl">{feature.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{feature.desc}</p>
-                  </div>
+                  <p className="mt-2 leading-8 text-[var(--color-ink)]/75">{f.desc}</p>
                 </div>
               ))}
             </div>
 
-            <Link
-              to="/method"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-none border border-white/40 bg-[#FDFBF7]/90 px-6 py-3.5 text-sm font-bold text-gray-900 shadow-xl hover:bg-white hover:text-[var(--color-cherry)] sm:w-auto"
-            >
-              Подробнее про метод
-              <ArrowRight className="h-4 w-4" />
+            <Link to="/method" className="mt-10 inline-flex rounded-full border border-white/40 px-7 py-3.5 font-semibold hover:bg-white/10">
+              подробнее про метод →
             </Link>
           </div>
 
-          <div className="hidden lg:block">
-            <img
+          <div className="relative mx-auto w-full max-w-md">
+            <Polaroid
               src="/lesson-photo.jpg"
               alt="Урок ToBe: тема Relationships на экране ноутбука"
-              className="mx-auto h-auto w-4/5 border border-[var(--color-gold)]/50 p-3 object-cover"
+              caption="real lesson: relationships"
+              rotate={3}
+              imgClassName="aspect-[4/5]"
             />
+            <span className="bubble absolute -left-4 top-1/3 -rotate-3">wait… this is english class?? 😳</span>
           </div>
         </div>
       </div>

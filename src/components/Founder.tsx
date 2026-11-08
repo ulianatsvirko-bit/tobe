@@ -1,51 +1,48 @@
-import { GraduationCap, Users, Award, BookOpen } from 'lucide-react';
+import { Title, Polaroid } from './ui';
 
-const facts = [
-  { icon: Users, title: '5 лет преподавания', desc: '30+ учеников' },
-  { icon: GraduationCap, title: 'Институт бизнеса БГУ', desc: 'Бизнес-администрирование на английском' },
-  { icon: Award, title: 'ЦТ по английскому — 92', desc: 'из 100 баллов' },
-  { icon: BookOpen, title: 'Готовлюсь к CAE', desc: 'Cambridge C1 Advanced' },
-];
+const facts = ['5 лет преподавания', '30+ учеников', 'ЦТ по английскому — 92/100', 'бизнес на английском · Институт бизнеса БГУ', 'готовлюсь к CAE (C1)'];
 
 export default function Founder() {
   return (
-    <section id="founder" className="overflow-hidden bg-[var(--color-ivory)] py-16 sm:py-24">
+    <section id="founder" className="paper overflow-hidden py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="mx-auto w-full max-w-md border border-[var(--color-ink)]/15 p-3">
-            <img
+        <div className="grid items-center gap-16 lg:grid-cols-2">
+          <div className="relative mx-auto h-[460px] w-full max-w-md sm:h-[540px]">
+            <Polaroid
               src="https://i.ibb.co/6JRVBxtS/photo-2025-05-02-20-56-05.jpg"
               alt="Ульяна Цвирко — основатель ToBe."
-              className="bw aspect-[4/5] h-full w-full object-cover"
+              caption="hi, it's me"
+              rotate={-3}
+              bw
+              imgClassName="aspect-[4/5]"
+              className="absolute left-0 top-0 z-10 w-[78%]"
             />
+            <Polaroid
+              src="/mood/fashion-books.jpg"
+              alt="Книги о моде"
+              caption="current reading"
+              rotate={8}
+              tape={false}
+              imgClassName="aspect-[4/3] object-contain"
+              className="absolute right-0 bottom-0 z-20 w-[52%]"
+            />
+            <img src="/mood/black-cat.jpg" alt="" aria-hidden="true" className="absolute -right-4 top-6 w-28 rotate-6 rounded-full border-4 border-white object-cover shadow-xl aspect-square" />
           </div>
 
           <div>
-            <span className="kicker text-[var(--color-cherry)]">Nº 05 · Кто преподаёт</span>
-            <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">Привет, я Ульяна</h2>
-            <div className="mt-6 space-y-4 text-lg leading-relaxed text-gray-600">
-              <p>
-                Я преподаю английский с 14 лет — за это время у меня занимались больше 30 учеников.
-              </p>
-              <p>
-                CLIL для меня не теория из учебника. Я сама учусь так каждый день: изучаю бизнес-администрирование на английском в Институте бизнеса БГУ. Поэтому знаю, как это работает — и как сделать, чтобы работало у тебя.
-              </p>
-              <p className="font-serif text-xl italic text-gray-900">
-                «Каждый может заговорить, если найдёт свою тему».
-              </p>
+            <Title kicker="nº 05 · кто преподаёт" caps="привет," script="я ульяна" align="left" />
+            <div className="notebook mt-10">
+              <div className="space-y-4 text-[17px] leading-8 text-[var(--color-ink)]/80">
+                <p>Я преподаю английский с 14 лет — за это время у меня занимались больше 30 учеников.</p>
+                <p>
+                  CLIL для меня не теория из учебника. Я сама так учусь каждый день: изучаю бизнес-администрирование на английском в Институте бизнеса БГУ. Поэтому знаю, как это работает — и как сделать, чтобы работало у тебя.
+                </p>
+                <p className="script text-4xl text-[var(--color-wine)]">каждый может заговорить, если найдёт свою тему</p>
+              </div>
             </div>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {facts.map((fact) => (
-                <div key={fact.title} className="flex items-center gap-4 rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-paper)] p-4">
-                  <div className="rounded-sm bg-[var(--color-cherry)]/10 p-2 text-[var(--color-cherry)]">
-                    <fact.icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-900">{fact.title}</p>
-                    <p className="text-sm text-gray-500">{fact.desc}</p>
-                  </div>
-                </div>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {facts.map((fact, i) => (
+                <span key={fact} className={`pill ${i % 2 ? 'bg-[var(--color-blush)] text-[var(--color-wine)]' : 'bg-[var(--color-wine)] text-[var(--color-paper)]'}`}>{fact}</span>
               ))}
             </div>
           </div>

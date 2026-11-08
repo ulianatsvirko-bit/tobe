@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import { Title } from './ui';
 
 const faqs = [
   {
@@ -32,36 +32,27 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="paper py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center sm:mb-14">
-          <img src="/mood/lace-bow.jpg" alt="" aria-hidden="true" className="mx-auto mb-4 w-28 mix-blend-multiply" />
-          <p className="kicker text-[var(--color-cherry)]">Nº 08 · FAQ</p>
-          <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">Частые вопросы</h2>
-          <p className="mt-3 text-sm text-gray-500">Не нашёл(ла) ответ? Напиши в Telegram — отвечу лично.</p>
-        </div>
+    <section id="faq" className="relative bg-[var(--color-blush)] pb-20 text-[var(--color-ink)] sm:pb-28" style={{ ['--scallop' as string]: 'var(--color-blush)' }}>
+      <div className="scallop" />
+      <div className="mx-auto max-w-3xl px-4 pt-20 sm:px-6 sm:pt-28 lg:px-8">
+        <img src="/mood/lace-bow.jpg" alt="" aria-hidden="true" className="mx-auto mb-6 w-28 mix-blend-multiply" />
+        <Title kicker="nº 08 · faq" caps="вопрос" script="ответ" />
+        <p className="mt-4 text-center text-sm text-[var(--color-ink)]/55">Не нашёл(ла) ответ? Напиши в Telegram — отвечу лично.</p>
 
-        <div className="space-y-4">
+        <div className="mt-12 border-t border-[var(--color-wine)]/20">
           {faqs.map((faq, idx) => (
-            <div key={faq.q} className="overflow-hidden rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-ivory)]">
+            <div key={faq.q} className="border-b border-[var(--color-wine)]/20">
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 aria-expanded={openIndex === idx}
-                className="flex w-full items-center justify-between px-5 py-4 text-left hover:bg-gray-50 sm:p-6"
+                className="flex w-full items-center gap-5 py-6 text-left"
               >
-                <span className="pr-3 text-base font-semibold text-gray-900 sm:text-lg">{faq.q}</span>
-                {openIndex === idx ? (
-                  <Minus className="h-5 w-5 shrink-0 text-[var(--color-cherry)]" />
-                ) : (
-                  <Plus className="h-5 w-5 shrink-0 text-gray-400" />
-                )}
+                <span className="kicker shrink-0 text-[var(--color-wine)]">( 0{idx + 1} )</span>
+                <span className="flex-1 text-lg font-medium sm:text-xl">{faq.q}</span>
+                <span className="text-2xl text-[var(--color-wine)]">{openIndex === idx ? '↑' : '↓'}</span>
               </button>
-              {openIndex === idx && (
-                <div className="border-t border-gray-100 px-5 pb-5 pt-4 text-sm leading-relaxed text-gray-600 sm:px-6 sm:pb-6 sm:text-base">
-                  {faq.a}
-                </div>
-              )}
+              {openIndex === idx && <p className="pb-7 pl-[4.6rem] leading-relaxed text-[var(--color-ink)]/75">{faq.a}</p>}
             </div>
           ))}
         </div>

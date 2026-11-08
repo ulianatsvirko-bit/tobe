@@ -43,7 +43,7 @@ export default function LessonExample() {
   ];
 
   return (
-    <section id="lesson" className="velvet relative overflow-hidden py-16">
+    <section id="lesson" className="velvet relative overflow-hidden pt-16 pb-24">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8 relative z-10">
         
         <AnimatePresence>
@@ -134,9 +134,9 @@ export default function LessonExample() {
         <div className={`text-center ${isOpen ? 'mt-4' : ''}`}>
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="group inline-flex items-center gap-3 bg-[#FDFBF7]/90 backdrop-blur-md border border-white/40 text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[var(--color-cherry)] transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            className="group inline-flex items-center gap-3 rounded-full bg-[var(--color-blush)] px-8 py-4 text-lg font-semibold text-[var(--color-wine)] shadow-xl hover:bg-white"
           >
-            <span>{isOpen ? 'Скрыть пример урока' : 'Посмотреть пример урока'}</span>
+            <span>{isOpen ? 'скрыть пример урока' : 'подсмотреть, как проходит урок'}</span>
             {isOpen ? (
               <ChevronUp className="w-5 h-5 transition-transform group-hover:-translate-y-1" />
             ) : (

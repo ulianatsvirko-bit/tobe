@@ -1,45 +1,44 @@
-import { ArrowRight } from 'lucide-react';
 import { openLeadForm } from '../lead-form';
+import { Polaroid } from './ui';
 
 export default function CTA() {
   return (
     <section
       id="cta"
-      className="relative overflow-hidden bg-[var(--color-cherry-dark)] py-16 text-white sm:py-24"
+      className="relative overflow-hidden bg-[var(--color-wine-deep)] py-24 text-[var(--color-paper)] sm:py-32"
       style={{
-        backgroundImage: 'linear-gradient(rgba(42,7,12,0.72), rgba(42,7,12,0.82)), url("/mood/leopards.jpg")',
+        backgroundImage: 'linear-gradient(rgba(46,5,11,0.74), rgba(46,5,11,0.84)), url("/mood/leopards.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 className="font-serif text-5xl leading-tight tracking-tight sm:text-7xl">
-          Знаешь больше.<br />
-          <span className="italic text-[var(--color-gold)]">Говоришь свободнее.</span>
-        </h2>
-        <p className="mx-auto mt-6 max-w-xl text-lg text-white/85">
-          Бесплатный пробный урок: определим уровень, попробуем задание по теме и подберём группу.
-        </p>
-
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <button
-            type="button"
-            onClick={() => openLeadForm('Пробный урок')}
-            className="inline-flex items-center gap-3 rounded-none bg-[var(--color-ivory)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-ink)] hover:bg-[var(--color-gold)]"
-          >
-            Записаться на пробный урок
-            <ArrowRight className="h-5 w-5" />
-          </button>
-          <a
-            href="https://t.me/tsvirkouliana"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 rounded-none border border-white/40 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white hover:bg-white/10"
-          >
-            Задать вопрос в Telegram
-          </a>
+      <div className="mx-auto grid max-w-6xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr] lg:px-8">
+        <div className="text-center lg:text-left">
+          <p className="kicker text-[var(--color-gold)]">your sign to start</p>
+          <h2 className="caps mt-5 text-6xl sm:text-8xl">знаешь больше.</h2>
+          <p className="script -mt-2 text-6xl text-[var(--color-blush)] sm:text-8xl">говоришь свободнее</p>
+          <p className="mx-auto mt-8 max-w-lg text-lg text-white/80 lg:mx-0">
+            Бесплатный пробный урок: определим уровень, попробуем задание по теме и подберём группу.
+          </p>
+          <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
+            <button
+              type="button"
+              onClick={() => openLeadForm('Пробный урок')}
+              className="whitespace-nowrap rounded-full bg-[var(--color-blush)] px-8 py-4 font-semibold text-[var(--color-wine)] hover:bg-white"
+            >
+              хочу на бесплатный урок →
+            </button>
+            <a href="https://t.me/tsvirkouliana" target="_blank" rel="noopener noreferrer" className="whitespace-nowrap rounded-full border border-white/40 px-8 py-4 font-semibold hover:bg-white/10">
+              задать вопрос в telegram
+            </a>
+          </div>
+          <p className="mt-5 text-sm text-white/55">бесплатно и ни к чему не обязывает</p>
         </div>
-        <p className="mt-6 font-serif text-sm italic text-white/70">Бесплатно и ни к чему не обязывает</p>
+
+        <div className="relative mx-auto w-full max-w-sm">
+          <Polaroid src="/mood/icons-trio.jpg" alt="Три иконы стиля" caption="решайся." rotate={5} bw imgClassName="aspect-[4/3]" />
+          <span className="bubble bubble-blue absolute -left-6 -bottom-6 -rotate-3">ok ok, i'm in 🫡</span>
+        </div>
       </div>
     </section>
   );
