@@ -41,6 +41,7 @@ export default function LeadForm({ open, format, onClose }: Props) {
           contact: data.get('contact'),
           format: data.get('format'),
           age: data.get('age'),
+          level: data.get('level'),
           goal: data.get('goal'),
           website: data.get('website'),
           submissionId: globalThis.crypto?.randomUUID?.() || `lead-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`,
@@ -50,10 +51,10 @@ export default function LeadForm({ open, format, onClose }: Props) {
       if (!response.ok || result.ok !== true) throw new Error('Lead delivery failed');
       form.reset();
       setStatus('success');
-      setMessage('Спасибо! Заявка отправлена. Я свяжусь с вами, чтобы договориться о пробном уроке.');
+      setMessage('Спасибо! Заявка отправлена. Я напишу тебе в ближайшее время, чтобы договориться о времени.');
     } catch {
       setStatus('error');
-      setMessage('Не получилось отправить заявку. Попробуйте ещё раз или напишите в Telegram.');
+      setMessage('Не получилось отправить заявку. Попробуй ещё раз или напиши мне в Telegram.');
     }
   };
 
@@ -64,9 +65,9 @@ export default function LeadForm({ open, format, onClose }: Props) {
           <X className="h-5 w-5" />
         </button>
 
-        <p className="mb-2 text-xs font-bold uppercase tracking-[.18em] text-[var(--color-cherry)]">Пробный урок · бесплатно</p>
-        <h2 id="lead-form-title" className="pr-12 text-3xl font-bold sm:text-4xl">Давайте познакомимся</h2>
-        <p className="mt-3 text-gray-600">Ответьте на несколько коротких вопросов. Я напишу вам и предложу подходящий формат для подростка или взрослого.</p>
+        <p className="mb-2 text-xs font-bold uppercase tracking-[.18em] text-[var(--color-cherry)]">Бесплатно · ни к чему не обязывает</p>
+        <h2 id="lead-form-title" className="pr-12 text-3xl font-bold sm:text-4xl">Давай познакомимся</h2>
+        <p className="mt-3 text-gray-600">Ответь на несколько коротких вопросов — я напишу тебе и подберу пробный урок, группу или место в клубе.</p>
 
         {status === 'success' ? (
           <div className="mt-8 rounded-2xl bg-green-50 p-6 text-green-900">
@@ -76,36 +77,42 @@ export default function LeadForm({ open, format, onClose }: Props) {
           </div>
         ) : (
           <form onSubmit={submit} className="mt-7 grid gap-5">
-            <label className="grid gap-2 text-sm font-semibold">Как вас зовут?
-              <input name="name" required autoComplete="name" className="rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-[var(--color-cherry)] focus:ring-2 focus:ring-[var(--color-cherry)]/20" placeholder="Ваше имя" />
+            <label className="grid gap-2 text-sm font-semibold">Как тебя зовут?
+              <input name="name" required autoComplete="name" className="rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-[var(--color-cherry)] focus:ring-2 focus:ring-[var(--color-cherry)]/20" placeholder="Имя" />
             </label>
-            <label className="grid gap-2 text-sm font-semibold">Как с вами связаться?
+            <label className="grid gap-2 text-sm font-semibold">Как с тобой связаться?
               <input name="contact" required className="rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-[var(--color-cherry)] focus:ring-2 focus:ring-[var(--color-cherry)]/20" placeholder="Email, телефон или @telegram" />
             </label>
             <div className="grid gap-5 sm:grid-cols-2">
-              <label className="grid gap-2 text-sm font-semibold">Возраст ученика
+              <label className="grid gap-2 text-sm font-semibold">Возраст
                 <select name="age" required defaultValue="" className="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-[var(--color-cherry)]">
-                  <option value="" disabled>Выберите</option>
-                  <option>13–15 лет</option><option>16–17 лет</option><option>18+ лет</option>
+                  <option value="" disabled>Выбери</option>
+                  <option>15–17 лет</option><option>18–20 лет</option><option>21–24 года</option><option>25+ лет</option>
                 </select>
               </label>
-              <label className="grid gap-2 text-sm font-semibold">Формат
+              <label className="grid gap-2 text-sm font-semibold">Уровень английского
+                <select name="level" required defaultValue="" className="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-[var(--color-cherry)]">
+                  <option value="" disabled>Выбери</option>
+                  <option>A1–A2</option><option>B1</option><option>B2+</option><option>Не знаю</option>
+                </select>
+              </label>
+              <label className="grid gap-2 text-sm font-semibold sm:col-span-2">Что интересно
                 <select name="format" required defaultValue={format || ''} className="rounded-xl border border-gray-300 bg-white px-4 py-3 outline-none focus:border-[var(--color-cherry)]">
-                  <option value="" disabled>Выберите</option>
-                  <option>Групповой формат</option><option>Гибридный формат</option><option>Индивидуальный формат</option><option>Пока не знаю</option>
+                  <option value="" disabled>Выбери</option>
+                  <option>Пробный урок</option><option>Групповой формат</option><option>Индивидуальный формат</option><option>Клуб ToBe Talks</option><option>Пока не знаю</option>
                 </select>
               </label>
             </div>
-            <label className="grid gap-2 text-sm font-semibold">Что хочется улучшить? <span className="font-normal text-gray-400">необязательно</span>
-              <textarea name="goal" rows={3} className="resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-[var(--color-cherry)] focus:ring-2 focus:ring-[var(--color-cherry)]/20" placeholder="Например: начать свободнее говорить" />
+            <label className="grid gap-2 text-sm font-semibold">Зачем тебе английский? <span className="font-normal text-gray-400">необязательно</span>
+              <textarea name="goal" rows={3} className="resize-none rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-[var(--color-cherry)] focus:ring-2 focus:ring-[var(--color-cherry)]/20" placeholder="Например: стажировка, учёба за границей, просто хочу свободно говорить" />
             </label>
-            <label className="hidden" aria-hidden="true">Ваш сайт<input name="website" tabIndex={-1} autoComplete="off" /></label>
+            <label className="hidden" aria-hidden="true">Сайт<input name="website" tabIndex={-1} autoComplete="off" /></label>
             <button disabled={status === 'sending'} className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-[var(--color-cherry)] px-7 py-4 font-bold text-white hover:bg-[var(--color-cherry-dark)] disabled:opacity-60">
               {status === 'sending' && <Loader2 className="h-5 w-5 animate-spin" />}
               Отправить заявку
             </button>
             {message && <p role="status" className={status === 'error' ? 'text-sm text-red-700' : 'text-sm text-gray-600'}>{message} {status === 'error' && <a className="font-bold underline" href="https://t.me/tsvirkouliana" target="_blank" rel="noreferrer">Написать в Telegram</a>}</p>}
-            <p className="text-center text-xs text-gray-400">Отправляя форму, вы соглашаетесь на обработку данных для связи по заявке.</p>
+            <p className="text-center text-xs text-gray-400">Отправляя форму, ты соглашаешься на обработку данных для связи по заявке.</p>
           </form>
         )}
       </div>

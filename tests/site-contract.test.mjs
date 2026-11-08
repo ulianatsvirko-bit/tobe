@@ -11,9 +11,20 @@ const pricing = read('src/components/Pricing.tsx');
 const html = read('index.html');
 
 
-test('site targets teenagers and adults', () => {
-  assert.match(hero, /подростков и взрослых/i);
-  assert.match(html, /подростков и взрослых/i);
+test('hero carries the agreed positioning', () => {
+  assert.match(hero, /the main character/);
+  assert.match(hero, /моде, психологии и бизнесе/);
+  assert.match(hero, /Знаешь больше\. Говоришь свободнее\./);
+  assert.doesNotMatch(html, /CLIL Academy/);
+});
+
+test('home page shows no unverifiable claims or certificates', () => {
+  const home = read('src/pages/HomePage.tsx');
+  assert.doesNotMatch(home, /Results/);
+  assert.match(home, /Founder/);
+  const founder = read('src/components/Founder.tsx');
+  assert.doesNotMatch(founder, /TKT|TESOL|CAE Score/);
+  assert.match(founder, /ЦТ по английскому — 92/);
 });
 
 test('lead capture is a real short form backed by the lead API', () => {
@@ -31,16 +42,12 @@ test('broken AI chatbot is removed and replaced with Telegram access', () => {
   assert.doesNotMatch(read('package.json'), /@google\/genai/);
 });
 
-test('teacher profile block is removed from the home page', () => {
-  const home = read('src/pages/HomePage.tsx');
-  assert.doesNotMatch(home, /Founder/);
-  assert.doesNotMatch(home, /Кто вас обучает\?|Ульяна Цвирко|CAE Score A|TESOL|TKT CLIL Band 4/);
-});
-
-test('pricing remains in BYN and all format buttons open the lead form', () => {
+test('pricing shows BYN and RUB, no hybrid plan, guarantee, and opens the lead form', () => {
   assert.match(pricing, /250 BYN/);
-  assert.match(pricing, /450 BYN/);
   assert.match(pricing, /380 BYN/);
+  assert.match(pricing, /₽/);
+  assert.doesNotMatch(pricing, /450 BYN|Гибридный/);
+  assert.match(pricing, /вернём деньги за оставшиеся занятия месяца/);
   assert.match(pricing, /openLeadForm\(plan.title\)/);
 });
 
@@ -60,8 +67,9 @@ test('lead API accepts the school form contract and formats Telegram delivery', 
   const lead = validateLead({
     name: 'Анна',
     contact: '@anna',
-    format: 'Гибридный формат',
-    age: '18+ лет',
+    format: 'Клуб ToBe Talks',
+    age: '18–20 лет',
+    level: 'B1',
     goal: 'Свободнее говорить',
     website: '',
     submissionId: 'lead-contract-123',
@@ -69,4 +77,6 @@ test('lead API accepts the school form contract and formats Telegram delivery', 
   assert.ok(lead);
   assert.match(formatMessage(lead), /ToBe · Анна/);
   assert.equal(validateLead({ ...lead, format: 'Неизвестный формат' }), null);
+  assert.equal(validateLead({ ...lead, format: 'Гибридный формат' }), null);
+  assert.equal(validateLead({ ...lead, level: '' }), null);
 });

@@ -1,49 +1,38 @@
-import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { openLeadForm } from '../lead-form';
 
 export default function CTA() {
   return (
-    <section id="cta" className="py-14 sm:py-24 bg-[var(--color-cherry)] text-white relative overflow-hidden">
+    <section id="cta" className="relative overflow-hidden bg-[var(--color-cherry)] py-16 text-white sm:py-24">
       <div className="absolute inset-0 bg-black/10" />
-      <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-      <div className="absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
+          Знаешь больше.<br />
+          <span className="font-serif italic">Говоришь свободнее.</span>
+        </h2>
+        <p className="mx-auto mt-6 max-w-xl text-lg text-white/85">
+          Бесплатный пробный урок: определим уровень, попробуем задание по теме и подберём группу.
+        </p>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl sm:text-6xl font-bold tracking-tight mb-6 sm:mb-8 leading-tight">
-            Хватит тратить время на скучную учёбу.{' '}
-            <span className="italic font-serif block sm:inline">Начните Быть.</span>
-          </h2>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.button
-              type="button"
-              onClick={() => openLeadForm()}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center gap-3 rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-gray-900 transition-all hover:bg-gray-100 hover:shadow-2xl"
-            >
-              Записаться на пробный урок
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </motion.button>
-            <motion.a
-              href="https://t.me/tsvirkouliana"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 rounded-full border border-white/40 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/10"
-            >
-              Задать вопрос в Telegram
-            </motion.a>
-          </div>
-          <p className="mt-6 text-white/60 text-sm italic font-serif">Это бесплатно и ни к чему вас не обязывает</p>
-        </motion.div>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button
+            type="button"
+            onClick={() => openLeadForm('Пробный урок')}
+            className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-bold text-gray-900 hover:bg-gray-100"
+          >
+            Записаться на пробный урок
+            <ArrowRight className="h-5 w-5" />
+          </button>
+          <a
+            href="https://t.me/tsvirkouliana"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 rounded-full border border-white/40 px-8 py-4 text-lg font-bold text-white hover:bg-white/10"
+          >
+            Задать вопрос в Telegram
+          </a>
+        </div>
+        <p className="mt-6 font-serif text-sm italic text-white/70">Бесплатно и ни к чему не обязывает</p>
       </div>
     </section>
   );

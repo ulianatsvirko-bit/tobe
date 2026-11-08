@@ -26,7 +26,7 @@ export default function LessonExample() {
       subtitle: "Пространственное мышление",
       desc: "Студент не просто читает, он анализирует и создает.",
       highlights: [
-        { label: "Задание", text: "«Перед вами бриф: клиент — фрилансер с высоким уровнем стресса. Разработайте палитру для его домашнего офиса, аргументируя выбор каждого цвета на английском»." },
+        { label: "Задание", text: "«Перед тобой бриф: клиент — фрилансер с высоким уровнем стресса. Разработай палитру для его домашнего офиса и аргументируй выбор каждого цвета на английском»." },
         { label: "Процесс", text: "Включение критического мышления через решение реальной задачи (Problem-based learning)." }
       ],
       icon: Lightbulb,
@@ -43,7 +43,7 @@ export default function LessonExample() {
   ];
 
   return (
-    <section className="relative overflow-hidden py-16" style={{
+    <section id="lesson" className="relative overflow-hidden py-16" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',

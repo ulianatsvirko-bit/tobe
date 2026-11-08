@@ -39,10 +39,10 @@ export default function Header() {
   };
 
   const navLinks = [
-    { name: 'Метод', id: 'method' },
-    { name: 'Направления', id: 'tracks' },
-    { name: 'Форматы', id: 'pricing' },
-    { name: 'Результаты', id: 'results' },
+    { name: 'Как учимся', id: 'method' },
+    { name: 'Пример урока', id: 'lesson' },
+    { name: 'Клуб', id: 'club' },
+    { name: 'Цены', id: 'pricing' },
     { name: 'FAQ', id: 'faq' },
   ];
 
@@ -66,7 +66,6 @@ export default function Header() {
             <span className={`font-serif font-bold text-2xl ${isScrolled || !isHome ? 'text-gray-900' : 'text-white'}`}>
               ToBe<span className="text-[var(--color-cherry)]">.</span>
             </span>
-            <span className={`text-[10px] uppercase tracking-[0.2em] font-medium opacity-50 ${isScrolled || !isHome ? 'text-gray-500' : 'text-white'}`}>Academy</span>
           </motion.div>
 
           {/* Desktop Nav */}
@@ -86,14 +85,14 @@ export default function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => openLeadForm()}
+              onClick={() => openLeadForm('Пробный урок')}
               className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all ${
                 isScrolled || !isHome
                   ? 'bg-[var(--color-cherry)] text-white hover:bg-[var(--color-cherry-dark)]' 
                   : 'bg-white text-[var(--color-cherry)] hover:bg-gray-100'
               }`}
             >
-              Записаться
+              Пробный урок
             </motion.button>
           </nav>
 
@@ -133,10 +132,10 @@ export default function Header() {
                 </button>
               ))}
               <button
-                onClick={() => { setMobileMenuOpen(false); openLeadForm(); }}
+                onClick={() => { setMobileMenuOpen(false); openLeadForm('Пробный урок'); }}
                 className="col-span-2 mt-2 rounded-full bg-[var(--color-cherry)] px-8 py-4 text-lg font-bold text-white shadow-lg shadow-[var(--color-cherry)]/30"
               >
-                Записаться
+                Пробный урок
               </button>
             </nav>
           </motion.div>

@@ -1,6 +1,7 @@
 const PORTFOLIO_LEAD_API = 'https://web-designer-portfolio-rosy.vercel.app/api/lead';
-const ALLOWED_FORMATS = new Set(['Групповой формат', 'Гибридный формат', 'Индивидуальный формат', 'Пока не знаю']);
-const ALLOWED_AGES = new Set(['13–15 лет', '16–17 лет', '18+ лет']);
+const ALLOWED_FORMATS = new Set(['Пробный урок', 'Групповой формат', 'Индивидуальный формат', 'Клуб ToBe Talks', 'Пока не знаю']);
+const ALLOWED_AGES = new Set(['15–17 лет', '18–20 лет', '21–24 года', '25+ лет']);
+const ALLOWED_LEVELS = new Set(['A1–A2', 'B1', 'B2+', 'Не знаю']);
 
 function clean(value, maxLength) {
   if (typeof value !== 'string') return '';
@@ -13,21 +14,22 @@ export function validateLead(body) {
   const contact = clean(body.contact, 200);
   const format = clean(body.format, 40);
   const age = clean(body.age, 30);
+  const level = clean(body.level, 20);
   const goal = clean(body.goal, 500);
   const website = clean(body.website, 200);
   const submissionId = clean(body.submissionId, 100);
 
   if (website) return { spam: true };
   if (!name || name.length > 80 || !contact || contact.length > 200) return null;
-  if (!ALLOWED_FORMATS.has(format) || !ALLOWED_AGES.has(age)) return null;
+  if (!ALLOWED_FORMATS.has(format) || !ALLOWED_AGES.has(age) || !ALLOWED_LEVELS.has(level)) return null;
   if (goal.length > 500 || !/^[a-zA-Z0-9_-]{8,100}$/.test(submissionId)) return null;
-  return { name, contact, format, age, goal, submissionId };
+  return { name, contact, format, age, level, goal, submissionId };
 }
 
 export function formatMessage(lead) {
   return [
     `ToBe · ${lead.name}`,
-    `${lead.age} · ${lead.format}`,
+    `${lead.age} · ${lead.level} · ${lead.format}`,
     lead.goal || 'Цель не указана',
   ].join(' · ').slice(0, 80);
 }

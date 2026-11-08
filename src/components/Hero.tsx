@@ -1,106 +1,51 @@
-import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { openLeadForm } from '../lead-form';
 
 export default function Hero() {
   return (
-    <section className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden" style={{
+    <section className="relative min-h-[100dvh] w-full overflow-hidden" style={{
       backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      backgroundAttachment: 'scroll'
     }}>
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[1]" />
-      {/* Content */}
-      <div className="relative z-[2] flex h-full flex-col justify-center px-5 sm:px-6 lg:px-8 mx-auto max-w-7xl w-full items-center text-center sm:items-start sm:text-left pb-8 sm:pb-0">
-        
-        {/* Micro-label */}
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4 mb-3 sm:mb-4"
-        >
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
+      <div className="relative z-[2] mx-auto flex min-h-[100dvh] w-full max-w-7xl flex-col justify-center px-5 pt-28 pb-12 sm:px-6 lg:px-8">
+        <div className="mb-5 flex items-center gap-3">
           <span className="h-px w-12 bg-[var(--color-cherry)]"></span>
-          <span className="text-white/80 uppercase tracking-[0.2em] text-xs font-bold">
-            CLIL Methodology
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+            English Club · онлайн · мини-группы
           </span>
-        </motion.div>
+        </div>
 
-        {/* Massive Title */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-4"
-        >
-          <h1 className="font-serif text-[18vw] xs:text-[17vw] sm:text-[140px] md:text-[180px] leading-[0.85] text-white tracking-tighter">
-            ToBe<span className="text-[var(--color-cherry)]">.</span>
-          </h1>
-        </motion.div>
+        <h1 className="max-w-4xl font-serif text-5xl leading-[0.95] tracking-tight text-white sm:text-7xl md:text-8xl">
+          ToBe<span className="text-[var(--color-cherry)]">.</span> the main character.
+        </h1>
 
-        {/* Subtitle */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-xs sm:max-w-2xl mb-6 sm:mb-8"
-        >
-          <p className="text-sm sm:text-2xl md:text-3xl text-white/90 font-light leading-relaxed">
-            Английский для подростков и взрослых через темы, которые действительно хочется обсуждать.
-          </p>
-        </motion.div>
+        <p className="mt-6 max-w-2xl text-lg font-light leading-relaxed text-white/90 sm:text-2xl">
+          Разбираешься в моде, психологии и бизнесе — и параллельно прокачиваешь английский. Мини-группы до 5 человек, онлайн.
+        </p>
 
-        {/* Buttons */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3 sm:gap-6 w-full sm:w-auto"
-        >
+        <p className="mt-4 font-serif text-lg italic text-white/70 sm:text-xl">
+          Знаешь больше. Говоришь свободнее.
+        </p>
+
+        <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
           <button
             type="button"
-            onClick={() => openLeadForm()}
-            className="group relative inline-flex items-center justify-center bg-white text-black px-8 py-3.5 sm:py-4 text-sm uppercase tracking-widest font-semibold overflow-hidden rounded-full transition-all hover:shadow-2xl hover:shadow-white/20 w-full sm:w-auto"
+            onClick={() => openLeadForm('Пробный урок')}
+            className="group inline-flex items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-sm font-semibold uppercase tracking-widest text-black hover:bg-[var(--color-cherry)] hover:text-white"
           >
-            <span className="relative z-10 flex items-center gap-3 transition-colors group-hover:text-white">
-              Записаться
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </span>
-            <div className="absolute inset-0 bg-[var(--color-cherry)] transform scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
+            Бесплатный пробный урок
+            <ArrowRight className="h-4 w-4" />
           </button>
-          
-          <a 
-            href="#pricing" 
-            className="inline-flex items-center justify-center px-8 py-3.5 sm:py-4 text-sm uppercase tracking-widest font-semibold text-white border border-white/30 rounded-full hover:bg-white hover:text-black transition-colors duration-500 w-full sm:w-auto"
+          <a
+            href="#club"
+            className="inline-flex items-center justify-center rounded-full border border-white/40 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white hover:bg-white hover:text-black"
           >
-            Форматы
+            Клуб ToBe Talks
           </a>
-        </motion.div>
-      </div>
-
-      {/* Vertical Scroll Indicator */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-8 z-[2]"
-      >
-        <span 
-          className="text-white/50 text-xs uppercase tracking-[0.3em] whitespace-nowrap"
-          style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
-        >
-          Листайте вниз
-        </span>
-        <div className="relative w-px h-24 bg-white/10 overflow-hidden">
-          <motion.div
-            animate={{ y: ["-100%", "100%"] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-full h-full bg-white" 
-          />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

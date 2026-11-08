@@ -1,138 +1,56 @@
-import { motion } from 'motion/react';
-import { User, Users, ArrowRight } from 'lucide-react';
+import { Shirt, Brain, Briefcase } from 'lucide-react';
+
+const tracks = [
+  {
+    title: 'Fashion & Style',
+    icon: Shirt,
+    desc: 'Мода как индустрия, культура и бизнес.',
+    topics: ['Почему Zara обновляет коллекции каждые 2 недели', 'Цвет и настроение: как стиль влияет на восприятие', 'Slow fashion vs fast fashion: спорим по-английски'],
+  },
+  {
+    title: 'Psychology',
+    icon: Brain,
+    desc: 'Как мы думаем, чувствуем и принимаем решения.',
+    topics: ['Почему мы покупаем то, что не носим', 'Привычки и прокрастинация', 'Первое впечатление и язык тела'],
+  },
+  {
+    title: 'Business',
+    icon: Briefcase,
+    desc: 'Бренды, стартапы и карьера — на языке, на котором говорит бизнес.',
+    topics: ['Как устроен бренд, который хочется купить', 'Питч своей идеи за 2 минуты', 'Собеседование и личный бренд'],
+  },
+];
 
 export default function Tracks() {
-  const topics = [
-    "Наука", "Искусство", "Культура", "Творчество", 
-    "Дизайн", "Бизнес", "Маркетинг", "Переговоры", 
-    "Психология отношений", "Кинематограф", "Музыка"
-  ];
-
   return (
-    <section id="tracks" className="pt-16 sm:pt-24 pb-12 sm:pb-16 overflow-hidden relative" style={{
-      backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'scroll'
-    }}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="mb-12 md:mb-16 max-w-3xl">
-          <span className="text-white/90 font-semibold tracking-widest uppercase text-xs mb-4 block drop-shadow-md">Форматы обучения</span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-lg">
-            Как мы выбираем темы?
-          </h2>
+    <section id="tracks" className="bg-gray-50 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 text-center sm:mb-14">
+          <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-cherry)]">Три направления</span>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">О чём мы говорим</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            В первом сезоне — по месяцу на каждое направление. Попробуешь всё и поймёшь, что откликается больше.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Description & Topics Cloud */}
-          <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-32">
-              <p className="text-xl text-white/90 leading-relaxed mb-10 drop-shadow-md">
-                Мы не ограничиваемся учебниками. Выбирайте темы, которые интересны именно вам, и погружайтесь в язык через них.
-              </p>
-              
-              {/* Topics Cloud */}
-              <div className="flex flex-wrap gap-3 md:gap-4">
-                {topics.map((topic, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ 
-                      delay: idx * 0.05, type: "spring", stiffness: 100
-                    }}
-                    viewport={{ once: true }}
-                    whileHover={{ 
-                      scale: 1.05, 
-                      rotate: idx % 2 === 0 ? 2 : -2,
-                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.3)"
-                    }}
-                    className="px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base font-medium cursor-pointer transition-all duration-300 border border-white/40 text-gray-900 bg-[#FDFBF7]/90 backdrop-blur-md relative overflow-hidden shadow-lg rounded-xl hover:bg-white hover:text-[var(--color-cherry)]"
-                  >
-                    <span className="relative z-10">{topic}</span>
-                  </motion.div>
-                ))}
+        <div className="grid gap-6 md:grid-cols-3">
+          {tracks.map((track) => (
+            <div key={track.title} className="flex flex-col rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-cherry)]/10 text-[var(--color-cherry)]">
+                <track.icon className="h-6 w-6" />
               </div>
-              
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                className="mt-10 flex items-center gap-4 opacity-80"
-              >
-                <div className="h-px flex-1 bg-gradient-to-r from-transparent to-white/50"></div>
-                <span className="text-xs font-bold tracking-widest text-white uppercase drop-shadow-md">И десятки других тем</span>
-                <div className="h-px flex-1 bg-gradient-to-l from-transparent to-white/50"></div>
-              </motion.div>
+              <h3 className="text-2xl font-bold">{track.title}</h3>
+              <p className="mt-2 text-gray-600">{track.desc}</p>
+              <ul className="mt-6 space-y-3 border-t border-gray-100 pt-6">
+                {track.topics.map((topic) => (
+                  <li key={topic} className="flex gap-3 text-sm text-gray-700">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-cherry)]" />
+                    {topic}
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-          
-          {/* Right Column: List */}
-          <div className="lg:col-span-7">
-            <div className="flex flex-col gap-8">
-              {/* Group Track */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="group relative bg-[#FDFBF7]/95 backdrop-blur-md p-5 sm:p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
-                  <div className="shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-sm border border-gray-100/50 flex items-center justify-center text-gray-400 group-hover:text-[var(--color-cherry)] group-hover:bg-[var(--color-cherry)]/5 group-hover:border-[var(--color-cherry)]/20 transition-all duration-500">
-                    <Users className="w-6 h-6 sm:w-8 sm:h-8" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                      <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">Комплексные треки</span>
-                      <span className="w-8 h-[1px] bg-gray-300 transition-all duration-500 group-hover:w-12 group-hover:bg-[var(--color-cherry)]"></span>
-                    </div>
-                    <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-900 mb-3 sm:mb-4 group-hover:text-[var(--color-cherry)] transition-colors duration-500">
-                      В мини-группах
-                    </h4>
-                    <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
-                      Мы объединяем темы в логичные блоки по интересам группы. Например, <span className="font-medium text-gray-900">«Творческий трек»</span> (Музыка, Искусство, Кино), <span className="font-medium text-gray-900">«Бизнес-трек»</span> (Маркетинг, Переговоры) или <span className="font-medium text-gray-900">«Общий»</span> (Психология, Культура).
-                    </p>
-                    <a href="#pricing" className="inline-flex items-center gap-2 mt-4 sm:mt-6 text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-[var(--color-cherry)] transition-colors group/link">
-                      Смотреть цены
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Individual Track */}
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
-                viewport={{ once: true }}
-                className="group relative bg-[#FDFBF7]/95 backdrop-blur-md p-5 sm:p-8 rounded-[2rem] border border-white/40 shadow-xl hover:shadow-2xl transition-all duration-500"
-              >
-                <div className="flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
-                  <div className="shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-sm border border-gray-100/50 flex items-center justify-center text-gray-400 group-hover:text-blue-600 group-hover:bg-blue-50 group-hover:border-blue-200 transition-all duration-500">
-                    <User className="w-6 h-6 sm:w-8 sm:h-8" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-3 mb-2 sm:mb-3">
-                      <span className="text-xs font-bold tracking-widest text-gray-500 uppercase">Полная свобода</span>
-                      <span className="w-8 h-[1px] bg-gray-300 transition-all duration-500 group-hover:w-12 group-hover:bg-blue-600"></span>
-                    </div>
-                    <h4 className="text-2xl sm:text-3xl md:text-4xl font-serif text-gray-900 mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors duration-500">
-                      Индивидуально
-                    </h4>
-                    <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">
-                      Вы сами собираете свой идеальный курс. Хотите сегодня обсуждать маркетинг, а на следующем занятии — кинематограф? Легко. Мы адаптируем программу точечно под ваши текущие интересы.
-                    </p>
-                    <a href="#pricing" className="inline-flex items-center gap-2 mt-4 sm:mt-6 text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-blue-600 transition-colors group/link">
-                      Смотреть цены
-                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

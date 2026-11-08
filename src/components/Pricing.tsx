@@ -1,143 +1,112 @@
-import { motion } from 'motion/react';
-import { Users, User, Zap, Check } from 'lucide-react';
+import { Users, User, Check, ShieldCheck, Gift } from 'lucide-react';
 import { openLeadForm } from '../lead-form';
 
-export default function Pricing() {
-  const plans = [
-    {
-      title: "Групповой формат",
-      desc: "Для тех, кто ценит общение и командные проекты.",
-      price: "250 BYN",
-      period: "/ месяц",
-      lessons: "8 занятий в месяц",
-      features: [
-        "2 занятия в неделю по 90 минут",
-        "Малые группы до 5 человек",
-        "Максимум внимания каждому",
-        "Работа над проектами"
-      ],
-      icon: Users,
-      highlight: false
-    },
-    {
-      title: "Гибридный формат",
-      desc: "Максимальный результат: практика в группе + личный разбор.",
-      price: "450 BYN",
-      period: "/ месяц",
-      lessons: "12 занятий в месяц (8 групповых + 4 индива)",
-      features: [
-        "2 групповых занятия (90 мин)",
-        "1 индивидуальное (60 мин)",
-        "3 занятия в неделю",
-        "Идеально для быстрого прогресса"
-      ],
-      icon: Zap,
-      highlight: true,
-      tag: "Рекомендуем"
-    },
-    {
-      title: "Индивидуальный формат",
-      desc: "Персональная траектория по вашим интересам.",
-      price: "380 BYN",
-      period: "/ месяц",
-      lessons: "8 занятий в месяц",
-      features: [
-        "2 занятия в неделю по 60 минут",
-        "Полная адаптация материала",
-        "Гибкий график",
-        "Фокус на ваших целях"
-      ],
-      icon: User,
-      highlight: false
-    }
-  ];
+const plans = [
+  {
+    title: 'Групповой формат',
+    desc: 'Основной формат ToBe: живые обсуждения, кейсы и проекты в мини-группе.',
+    price: '250 BYN',
+    rub: '≈ 6 900 ₽',
+    lessons: '8 занятий в месяц',
+    features: [
+      '2 занятия в неделю по 90 минут',
+      'Группа до 5 человек',
+      'Сезон 3 месяца с финальным проектом',
+      'Бесплатный клуб ToBe Talks',
+    ],
+    icon: Users,
+    highlight: true,
+  },
+  {
+    title: 'Индивидуальный формат',
+    desc: 'Если неудобно в группе или нужна своя траектория.',
+    price: '380 BYN',
+    rub: '≈ 10 500 ₽',
+    lessons: '8 занятий в месяц',
+    features: [
+      '2 занятия в неделю по 60 минут',
+      'Темы под твои интересы и цели',
+      'Гибкий график',
+      'Бесплатный клуб ToBe Talks',
+    ],
+    icon: User,
+    highlight: false,
+  },
+];
 
+export default function Pricing() {
   return (
-    <section id="pricing" className="py-14 sm:py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 sm:mb-16 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl mb-3 sm:mb-4">Форматы и стоимость</h2>
-          <p className="text-base sm:text-xl text-gray-600">Выберите свой ритм погружения</p>
+    <section id="pricing" className="bg-gray-50 py-16 sm:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 text-center sm:mb-14">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Форматы и стоимость</h2>
+          <p className="mt-3 text-lg text-gray-600">Начни с бесплатного пробного урока — подберём формат и группу по уровню.</p>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3 lg:items-start">
-          {plans.map((plan, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.2 }}
-              viewport={{ once: true }}
-              className={`relative rounded-3xl p-6 sm:p-8 overflow-hidden ${
-                plan.highlight 
-                  ? 'text-white shadow-2xl ring-4 ring-[var(--color-cherry)]/20 lg:scale-[1.03] z-10' 
-                  : 'bg-white text-gray-900 border border-gray-200 shadow-lg'
-              }`}
+        <div className="grid gap-6 md:grid-cols-2 md:items-stretch">
+          {plans.map((plan) => (
+            <div
+              key={plan.title}
+              className={`flex flex-col rounded-3xl p-6 sm:p-8 ${plan.highlight ? 'bg-gray-900 text-white shadow-2xl' : 'border border-gray-200 bg-white text-gray-900 shadow-lg'}`}
             >
-              {plan.highlight && (
-                <div className="absolute inset-0 z-0">
-                  <img 
-                    src="https://i.ibb.co/Tq23tS8Y/To-Be.jpg" 
-                    alt="Background" 
-                    className="h-full w-full object-cover"
-                  />
+              <div className="flex items-center justify-between">
+                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl ${plan.highlight ? 'bg-white/10' : 'bg-gray-100'}`}>
+                  <plan.icon className="h-6 w-6" />
                 </div>
-              )}
-              
-              <div className="relative z-10">
                 {plan.highlight && (
-                  <div className="mb-4 lg:mb-0 lg:absolute lg:-top-4 lg:left-1/2 lg:-translate-x-1/2 inline-flex rounded-full bg-[var(--color-cherry)] px-4 py-1 text-xs sm:text-sm font-bold text-white uppercase tracking-wide shadow-lg">
-                    {plan.tag}
-                  </div>
+                  <span className="rounded-full bg-[var(--color-cherry)] px-4 py-1 text-xs font-bold uppercase tracking-wide">Основной</span>
                 )}
-
-              <div className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl ${
-                plan.highlight ? 'bg-white/10 text-white' : 'bg-gray-100 text-gray-900'
-              }`}>
-                <plan.icon className="h-6 w-6" />
               </div>
 
-              <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
-              <p className={`text-sm mb-6 ${plan.highlight ? 'text-gray-400' : 'text-gray-500'}`}>
-                {plan.desc}
-              </p>
+              <h3 className="mt-6 text-2xl font-bold">{plan.title}</h3>
+              <p className={`mt-2 text-sm ${plan.highlight ? 'text-white/70' : 'text-gray-500'}`}>{plan.desc}</p>
 
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className={`text-4xl font-bold ${plan.highlight ? 'text-white' : 'text-gray-900'}`}>{plan.price}</span>
-                <span className={`text-sm ${plan.highlight ? 'text-gray-100' : 'text-gray-500'}`}>{plan.period}</span>
+              <div className="mt-6 flex flex-wrap items-baseline gap-x-2">
+                <span className="text-4xl font-bold">{plan.price}</span>
+                <span className={`text-sm ${plan.highlight ? 'text-white/70' : 'text-gray-500'}`}>/ месяц · {plan.rub}</span>
               </div>
-              <div className={`text-sm font-semibold mb-8 ${plan.highlight ? 'text-amber-200' : 'text-[var(--color-cherry)]'}`}>
-                {plan.lessons}
-              </div>
+              <p className={`mt-1 text-sm font-semibold ${plan.highlight ? 'text-[var(--color-cherry-light)]' : 'text-[var(--color-cherry)]'}`}>{plan.lessons}</p>
 
-              <ul className="space-y-2 md:space-y-4 mb-6 md:mb-8">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-2 md:gap-3">
-                    <Check className={`h-4 w-4 md:h-5 md:w-5 shrink-0 ${plan.highlight ? 'text-white' : 'text-green-600'}`} />
-                    <span className={`text-xs md:text-sm ${plan.highlight ? 'text-gray-100' : 'text-gray-600'}`}>{feature}</span>
+              <ul className="mt-6 flex-1 space-y-3">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <Check className={`mt-0.5 h-5 w-5 shrink-0 ${plan.highlight ? 'text-[var(--color-cherry-light)]' : 'text-green-600'}`} />
+                    <span className={`text-sm ${plan.highlight ? 'text-white/90' : 'text-gray-600'}`}>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <button
+                type="button"
                 onClick={() => openLeadForm(plan.title)}
-                className={`w-full rounded-xl py-4 min-h-[52px] text-sm font-bold transition-all ${
-                  plan.highlight 
-                    ? 'bg-[var(--color-cherry)] text-white hover:bg-[var(--color-cherry-light)]' 
-                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                }`}
+                className={`mt-8 min-h-[52px] w-full rounded-xl py-4 text-sm font-bold ${plan.highlight ? 'bg-[var(--color-cherry)] text-white hover:bg-[var(--color-cherry-dark)]' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}`}
               >
-                Выбрать формат
-              </motion.button>
-              <p className={`mt-4 text-center text-[10px] italic opacity-50 ${plan.highlight ? 'text-white' : 'text-gray-500'}`}>
-                * оплата производится в бел. рублях по курсу НБРБ
-              </p>
-              </div>
-            </motion.div>
+                Записаться на пробный урок
+              </button>
+            </div>
           ))}
         </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="flex gap-4 rounded-2xl border border-gray-200 bg-white p-5">
+            <ShieldCheck className="h-6 w-6 shrink-0 text-green-600" />
+            <div>
+              <p className="font-bold">Гарантия первого месяца</p>
+              <p className="mt-1 text-sm text-gray-600">Если после первого занятия в группе поймёшь, что формат не твой, вернём деньги за оставшиеся занятия месяца.</p>
+            </div>
+          </div>
+          <div className="flex gap-4 rounded-2xl border border-gray-200 bg-white p-5">
+            <Gift className="h-6 w-6 shrink-0 text-[var(--color-cherry)]" />
+            <div>
+              <p className="font-bold">Бонус первым пятерым</p>
+              <p className="mt-1 text-sm text-gray-600">Первые 5 учеников январского сезона получают бесплатный индивидуальный разбор на 60 минут.</p>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 text-center text-sm text-gray-500">
+          Дополнительно к группе: индивидуальный разбор 60 минут — 50 BYN (≈ 1 400 ₽). Цены в рублях РФ ориентировочные, по текущему курсу.
+        </p>
       </div>
     </section>
   );

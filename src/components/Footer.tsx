@@ -5,8 +5,8 @@ export default function Footer() {
     <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-serif font-bold mb-2">ToBe<span className="text-[var(--color-cherry)]">.</span> CLIL Academy</h2>
-          <p className="text-gray-400 italic">Ваш путь к себе.</p>
+          <h2 className="text-2xl font-serif font-bold mb-2">ToBe<span className="text-[var(--color-cherry)]">.</span> English Club</h2>
+          <p className="text-gray-400 italic">Не учим язык. Учимся на нём.</p>
         </div>
 
         <div className="flex gap-4">
@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mt-12 text-center text-sm text-gray-600">
-        © {new Date().getFullYear()} ToBe. CLIL Academy. All rights reserved.
+        © {new Date().getFullYear()} ToBe. English Club
       </div>
     </footer>
   );

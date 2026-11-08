@@ -1,79 +1,54 @@
-import { motion } from 'motion/react';
-import { Award, GraduationCap, Globe } from 'lucide-react';
+import { GraduationCap, Users, Award, BookOpen } from 'lucide-react';
+
+const facts = [
+  { icon: Users, title: '5 лет преподавания', desc: '30+ учеников' },
+  { icon: GraduationCap, title: 'Институт бизнеса БГУ', desc: 'Бизнес-администрирование на английском' },
+  { icon: Award, title: 'ЦТ по английскому — 92', desc: 'из 100 баллов' },
+  { icon: BookOpen, title: 'Готовлюсь к CAE', desc: 'Cambridge C1 Advanced' },
+];
 
 export default function Founder() {
   return (
-    <section className="py-14 sm:py-24 bg-gray-50 overflow-hidden">
+    <section id="founder" className="overflow-hidden bg-gray-50 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="aspect-[4/3] sm:aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl relative group">
-              <img 
-                src="https://i.ibb.co/6JRVBxtS/photo-2025-05-02-20-56-05.jpg" 
-                alt="Ульяна - Основатель ToBe." 
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <p className="text-white text-sm italic font-serif">"Я верю, что каждый может заговорить, если найдет свою тему"</p>
-              </div>
-            </div>
-            <p className="mt-4 text-center text-xs text-gray-400 uppercase tracking-widest font-medium italic">Founder & Lead Teacher</p>
-            <div className="absolute -bottom-6 -right-6 h-32 w-32 bg-[var(--color-cherry)] rounded-full blur-3xl opacity-30" />
-            <div className="absolute -top-6 -left-6 h-32 w-32 bg-blue-500 rounded-full blur-3xl opacity-20" />
-          </motion.div>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div className="mx-auto w-full max-w-md overflow-hidden rounded-3xl shadow-2xl">
+            <img
+              src="https://i.ibb.co/6JRVBxtS/photo-2025-05-02-20-56-05.jpg"
+              alt="Ульяна Цвирко — основатель ToBe."
+              className="aspect-[4/5] h-full w-full object-cover"
+            />
+          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="space-y-4">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight sm:text-5xl">Кто вас обучает?</h2>
-              <p className="text-xl font-medium text-[var(--color-cherry)]">Ульяна Цвирко</p>
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Ульяна создала ToBe с одной целью — сделать изучение английского таким же естественным, как познание мира в детстве. Её подход объединяет лучшие мировые практики CLIL-обучения с индивидуальным подходом к каждому студенту.
+          <div>
+            <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-cherry)]">Кто преподаёт</span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">Привет, я Ульяна</h2>
+            <div className="mt-6 space-y-4 text-lg leading-relaxed text-gray-600">
+              <p>
+                Я преподаю английский с 14 лет — за это время у меня занимались больше 30 учеников.
+              </p>
+              <p>
+                CLIL для меня не теория из учебника. Я сама учусь так каждый день: изучаю бизнес-администрирование на английском в Институте бизнеса БГУ. Поэтому знаю, как это работает — и как сделать, чтобы работало у тебя.
+              </p>
+              <p className="font-serif text-xl italic text-gray-900">
+                «Каждый может заговорить, если найдёт свою тему».
               </p>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
-                <div className="p-2 rounded-lg bg-[var(--color-cherry)]/10 text-[var(--color-cherry)]">
-                  <Award className="h-6 w-6" />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {facts.map((fact) => (
+                <div key={fact.title} className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
+                  <div className="rounded-lg bg-[var(--color-cherry)]/10 p-2 text-[var(--color-cherry)]">
+                    <fact.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-900">{fact.title}</p>
+                    <p className="text-sm text-gray-500">{fact.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-bold text-gray-900">CAE Score A</p>
-                  <p className="text-sm text-gray-500">Advanced English</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-sm border border-gray-100">
-                <div className="p-2 rounded-lg bg-[var(--color-cherry)]/10 text-[var(--color-cherry)]">
-                  <GraduationCap className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">TESOL</p>
-                  <p className="text-sm text-gray-500">Certified Teacher</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 p-4 rounded-2xl bg-white shadow-sm border border-gray-100 sm:col-span-2">
-                <div className="p-2 rounded-lg bg-[var(--color-cherry)]/10 text-[var(--color-cherry)]">
-                  <Globe className="h-6 w-6" />
-                </div>
-                <div>
-                  <p className="font-bold text-gray-900">TKT CLIL Band 4</p>
-                  <p className="text-sm text-gray-500">Expert in Content and Language Integrated Learning</p>
-                </div>
-              </div>
-
+              ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
