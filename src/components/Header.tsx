@@ -52,7 +52,7 @@ export default function Header() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || !isHome ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+          isScrolled || !isHome ? 'bg-[var(--color-paper)]/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -64,7 +64,7 @@ export default function Header() {
             onClick={() => navigate('/')}
           >
             <span className={`font-serif font-bold text-2xl ${isScrolled || !isHome ? 'text-gray-900' : 'text-white'}`}>
-              ToBe<span className="text-[var(--color-cherry)]">.</span>
+              ToBe<span className={isScrolled || !isHome ? 'text-[var(--color-cherry)]' : 'text-[var(--color-gold)]'}>.</span>
             </span>
           </motion.div>
 

@@ -2,10 +2,10 @@ import { Instagram, Send } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
+    <footer className="bg-[var(--color-ink)] text-white py-12 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="text-center md:text-left">
-          <h2 className="text-2xl font-serif font-bold mb-2">ToBe<span className="text-[var(--color-cherry)]">.</span> English Club</h2>
+          <h2 className="text-2xl font-serif font-bold mb-2">ToBe<span className="text-[var(--color-gold)]">.</span> English Club</h2>
           <p className="text-gray-400 italic">Не учим язык. Учимся на нём.</p>
         </div>
 

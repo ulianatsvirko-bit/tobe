@@ -43,12 +43,7 @@ export default function LessonExample() {
   ];
 
   return (
-    <section id="lesson" className="relative overflow-hidden py-16" style={{
-      backgroundImage: 'url("https://i.ibb.co/Tq23tS8Y/To-Be.jpg")',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'scroll'
-    }}>
+    <section id="lesson" className="velvet relative overflow-hidden py-16">
       <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8 relative z-10">
         
         <AnimatePresence>
@@ -74,7 +69,7 @@ export default function LessonExample() {
                     <img
                       src="/lesson-photo.jpg"
                       alt="Пример урока ToBe"
-                      className="w-full max-w-2xl rounded-3xl shadow-2xl object-cover border border-white/20"
+                      className="w-full max-w-2xl rounded-sm shadow-2xl object-cover border border-white/20"
                       style={{ maxHeight: '420px', objectPosition: 'center' }}
                     />
                   </div>
@@ -112,7 +107,7 @@ export default function LessonExample() {
                             </p>
 
                             {step.highlights && (
-                              <div className={`space-y-4 bg-black/5 p-5 rounded-2xl border border-black/5 text-left ${idx % 2 === 0 ? 'md:ml-auto' : ''}`}>
+                              <div className={`space-y-4 bg-black/5 p-5 rounded-sm border border-black/5 text-left ${idx % 2 === 0 ? 'md:ml-auto' : ''}`}>
                                 {step.highlights.map((h, i) => (
                                   <div key={i} className="text-sm">
                                     <span className="font-bold text-gray-900 block mb-1">{h.label}:</span>

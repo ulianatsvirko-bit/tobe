@@ -9,20 +9,20 @@ const facts = [
 
 export default function Founder() {
   return (
-    <section id="founder" className="overflow-hidden bg-gray-50 py-16 sm:py-24">
+    <section id="founder" className="overflow-hidden bg-[var(--color-ivory)] py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="mx-auto w-full max-w-md overflow-hidden rounded-3xl shadow-2xl">
+          <div className="mx-auto w-full max-w-md border border-[var(--color-ink)]/15 p-3">
             <img
               src="https://i.ibb.co/6JRVBxtS/photo-2025-05-02-20-56-05.jpg"
               alt="Ульяна Цвирко — основатель ToBe."
-              className="aspect-[4/5] h-full w-full object-cover"
+              className="bw aspect-[4/5] h-full w-full object-cover"
             />
           </div>
 
           <div>
-            <span className="text-sm font-semibold uppercase tracking-wide text-[var(--color-cherry)]">Кто преподаёт</span>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-5xl">Привет, я Ульяна</h2>
+            <span className="kicker text-[var(--color-cherry)]">Nº 05 · Кто преподаёт</span>
+            <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">Привет, я Ульяна</h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-gray-600">
               <p>
                 Я преподаю английский с 14 лет — за это время у меня занимались больше 30 учеников.
@@ -37,8 +37,8 @@ export default function Founder() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {facts.map((fact) => (
-                <div key={fact.title} className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-                  <div className="rounded-lg bg-[var(--color-cherry)]/10 p-2 text-[var(--color-cherry)]">
+                <div key={fact.title} className="flex items-center gap-4 rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-paper)] p-4">
+                  <div className="rounded-sm bg-[var(--color-cherry)]/10 p-2 text-[var(--color-cherry)]">
                     <fact.icon className="h-6 w-6" />
                   </div>
                   <div>

@@ -16,9 +16,10 @@ const after = [
 
 export default function Pain() {
   return (
-    <section className="bg-white py-16 sm:py-24">
+    <section className="paper py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="mx-auto max-w-3xl text-center text-3xl font-bold tracking-tight sm:text-5xl">
+        <p className="kicker text-center text-[var(--color-cherry)]">Nº 01 · The problem</p>
+        <h2 className="mx-auto mt-3 max-w-3xl text-center text-4xl italic tracking-tight sm:text-6xl">
           Знакомо?
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-gray-600">
@@ -26,7 +27,7 @@ export default function Pain() {
         </p>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-gray-200 bg-gray-50 p-6 sm:p-10">
+          <div className="rounded-sm border border-gray-200 bg-[var(--color-ivory)] p-6 sm:p-10">
             <p className="mb-6 text-sm font-bold uppercase tracking-widest text-gray-400">Обычный английский</p>
             <ul className="space-y-5">
               {before.map((item) => (
@@ -38,7 +39,7 @@ export default function Pain() {
             </ul>
           </div>
 
-          <div className="rounded-3xl bg-gray-900 p-6 text-white sm:p-10">
+          <div className="rounded-sm bg-[var(--color-ink)] p-6 text-white sm:p-10">
             <p className="mb-6 text-sm font-bold uppercase tracking-widest text-[var(--color-cherry-light)]">В ToBe.</p>
             <ul className="space-y-5">
               {after.map((item) => (

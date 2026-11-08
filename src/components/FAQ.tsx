@@ -32,16 +32,17 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-white py-16 sm:py-24">
+    <section id="faq" className="paper py-16 sm:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center sm:mb-14">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">Частые вопросы</h2>
+          <p className="kicker text-[var(--color-cherry)]">Nº 08 · FAQ</p>
+          <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">Частые вопросы</h2>
           <p className="mt-3 text-sm text-gray-500">Не нашёл(ла) ответ? Напиши в Telegram — отвечу лично.</p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
-            <div key={faq.q} className="overflow-hidden rounded-2xl border border-gray-200 bg-white">
+            <div key={faq.q} className="overflow-hidden rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-ivory)]">
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
