@@ -33,7 +33,13 @@ export default function Season() {
           ))}
         </ol>
 
-        <div className="mt-10 flex flex-col items-center gap-4 rounded-sm bg-[var(--color-ink)] p-6 text-center text-white sm:flex-row sm:justify-between sm:p-8 sm:text-left">
+        <img
+          src="/mood/finish-what-you-start.jpg"
+          alt="Коллаж из небоскрёбов с надписью Finish what you start"
+          className="mt-10 w-full object-contain mix-blend-multiply"
+        />
+
+        <div className="mt-6 flex flex-col items-center gap-4 rounded-sm bg-[var(--color-ink)] p-6 text-center text-white sm:flex-row sm:justify-between sm:p-8 sm:text-left">
           <div>
             <p className="font-serif text-2xl italic sm:text-3xl">Ближайший старт — январь 2027</p>
             <p className="mt-1 text-white/70">Одна группа · уровень A2–B1 · 5 мест</p>

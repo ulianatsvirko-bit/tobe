@@ -3,7 +3,14 @@ import { openLeadForm } from '../lead-form';
 
 export default function Hero() {
   return (
-    <section className="velvet relative min-h-[100dvh] w-full overflow-hidden text-[var(--color-ivory)]">
+    <section
+      className="relative min-h-[100dvh] w-full overflow-hidden bg-[var(--color-cherry-dark)] text-[var(--color-ivory)]"
+      style={{
+        backgroundImage: 'linear-gradient(105deg, rgba(42,7,12,0.82) 0%, rgba(42,7,12,0.55) 55%, rgba(42,7,12,0.35) 100%), url("/mood/velvet-floral.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="relative mx-auto grid min-h-[100dvh] w-full max-w-7xl items-center gap-10 px-5 pt-28 pb-14 sm:px-6 lg:grid-cols-[1.25fr_1fr] lg:px-8">
         <div>
           <div className="flex items-center gap-4 text-[var(--color-gold)]">

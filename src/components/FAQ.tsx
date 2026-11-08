@@ -35,6 +35,7 @@ export default function FAQ() {
     <section id="faq" className="paper py-16 sm:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center sm:mb-14">
+          <img src="/mood/lace-bow.jpg" alt="" aria-hidden="true" className="mx-auto mb-4 w-28 mix-blend-multiply" />
           <p className="kicker text-[var(--color-cherry)]">Nº 08 · FAQ</p>
           <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">Частые вопросы</h2>
           <p className="mt-3 text-sm text-gray-500">Не нашёл(ла) ответ? Напиши в Telegram — отвечу лично.</p>

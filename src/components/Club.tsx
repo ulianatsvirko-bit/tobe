@@ -16,6 +16,7 @@ export default function Club() {
 
         <div className="grid gap-6 md:grid-cols-2">
           <div className="flex flex-col rounded-sm bg-[var(--color-ink)] p-6 text-white sm:p-8">
+            <img src="/mood/black-cat.jpg" alt="Чёрная кошка в бриллиантовом ожерелье" className="-mx-6 -mt-6 mb-6 aspect-[16/10] w-[calc(100%+3rem)] max-w-none object-cover sm:-mx-8 sm:-mt-8 sm:w-[calc(100%+4rem)]" />
             <Video className="h-8 w-8 text-[var(--color-cherry-light)]" />
             <h3 className="mt-4 font-serif text-3xl italic">Онлайн</h3>
             <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-white/60">Бесплатно · раз в 2 недели</p>
@@ -33,6 +34,7 @@ export default function Club() {
           </div>
 
           <div className="flex flex-col rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-ivory)] p-6 sm:p-8">
+            <img src="/mood/coffee.jpg" alt="Чашка кофе со следом помады" className="-mx-6 -mt-6 mb-6 aspect-[16/10] w-[calc(100%+3rem)] max-w-none bg-white object-contain sm:-mx-8 sm:-mt-8 sm:w-[calc(100%+4rem)]" />
             <MapPin className="h-8 w-8 text-[var(--color-cherry)]" />
             <h3 className="mt-4 font-serif text-3xl italic">ToBe Talks Live · Минск</h3>
             <p className="mt-1 text-sm font-semibold uppercase tracking-widest text-gray-400">Скоро</p>

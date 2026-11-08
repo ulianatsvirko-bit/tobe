@@ -39,6 +39,7 @@ export default function Pricing() {
     <section id="pricing" className="bg-[var(--color-ivory)] py-16 sm:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 text-center sm:mb-14">
+          <img src="/mood/cheetahs.jpg" alt="" aria-hidden="true" className="mx-auto mb-4 w-32 mix-blend-multiply sm:w-40" />
           <p className="kicker text-[var(--color-cherry)]">Nº 07 · Prices</p>
           <h2 className="mt-2 text-4xl italic tracking-tight sm:text-6xl">Форматы и стоимость</h2>
           <p className="mt-3 text-lg text-gray-600">Начни с бесплатного пробного урока — подберём формат и группу по уровню.</p>

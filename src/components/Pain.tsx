@@ -26,8 +26,14 @@ export default function Pain() {
           Проблема обычно не в грамматике. Просто на уроках скучно — и говорить не о чем.
         </p>
 
+        <figure className="mx-auto mt-10 max-w-3xl">
+          <img src="/mood/newspapers.jpg" alt="Четыре девушки прячутся за газетами" className="bw aspect-[16/9] w-full object-cover" />
+          <figcaption className="kicker mt-3 text-center text-gray-400">Когда учитель спрашивает: “Any questions?”</figcaption>
+        </figure>
+
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="rounded-sm border border-gray-200 bg-[var(--color-ivory)] p-6 sm:p-10">
+          <div className="relative overflow-hidden rounded-sm border border-gray-200 bg-[var(--color-ivory)] p-6 sm:p-10">
+            <img src="/mood/cat-curled.jpg" alt="" aria-hidden="true" className="pointer-events-none absolute -right-6 -bottom-6 w-32 opacity-25 mix-blend-multiply sm:w-40" />
             <p className="mb-6 text-sm font-bold uppercase tracking-widest text-gray-400">Обычный английский</p>
             <ul className="space-y-5">
               {before.map((item) => (

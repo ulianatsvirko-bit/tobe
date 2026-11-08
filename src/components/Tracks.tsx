@@ -4,18 +4,21 @@ const tracks = [
   {
     title: 'Fashion & Style',
     icon: Shirt,
+    img: '/mood/fashion-books.jpg',
     desc: 'Мода как индустрия, культура и бизнес.',
     topics: ['Почему Zara обновляет коллекции каждые 2 недели', 'Цвет и настроение: как стиль влияет на восприятие', 'Slow fashion vs fast fashion: спорим по-английски'],
   },
   {
     title: 'Psychology',
     icon: Brain,
+    img: '/mood/lace-profile.jpg',
     desc: 'Как мы думаем, чувствуем и принимаем решения.',
     topics: ['Почему мы покупаем то, что не носим', 'Привычки и прокрастинация', 'Первое впечатление и язык тела'],
   },
   {
     title: 'Business',
     icon: Briefcase,
+    img: '/mood/nyc-skyline.jpg',
     desc: 'Бренды, стартапы и карьера — на языке, на котором говорит бизнес.',
     topics: ['Как устроен бренд, который хочется купить', 'Питч своей идеи за 2 минуты', 'Собеседование и личный бренд'],
   },
@@ -36,8 +39,8 @@ export default function Tracks() {
         <div className="grid gap-6 md:grid-cols-3">
           {tracks.map((track, idx) => (
             <div key={track.title} className="flex flex-col rounded-sm border border-[var(--color-ink)]/10 bg-[var(--color-paper)] p-6 sm:p-8">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-sm bg-[var(--color-cherry)]/10 text-[var(--color-cherry)]">
-                <track.icon className="h-6 w-6" />
+              <div className="-mx-6 -mt-6 mb-6 flex aspect-[3/2] items-center justify-center overflow-hidden bg-white sm:-mx-8 sm:-mt-8">
+                <img src={track.img} alt="" aria-hidden="true" className="h-full w-full object-contain p-4" />
               </div>
               <p className="kicker text-gray-400">Track 0{idx + 1}</p>
               <h3 className="mt-1 font-serif text-3xl italic">{track.title}</h3>

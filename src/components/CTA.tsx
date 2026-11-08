@@ -3,7 +3,15 @@ import { openLeadForm } from '../lead-form';
 
 export default function CTA() {
   return (
-    <section id="cta" className="velvet relative overflow-hidden py-16 text-white sm:py-24">
+    <section
+      id="cta"
+      className="relative overflow-hidden bg-[var(--color-cherry-dark)] py-16 text-white sm:py-24"
+      style={{
+        backgroundImage: 'linear-gradient(rgba(42,7,12,0.72), rgba(42,7,12,0.82)), url("/mood/leopards.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="font-serif text-5xl leading-tight tracking-tight sm:text-7xl">
           Знаешь больше.<br />
