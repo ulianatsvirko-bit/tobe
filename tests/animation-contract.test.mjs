@@ -26,10 +26,9 @@ test('scrolling stays smooth without hiding or fading content', () => {
   assert.match(css, /prefers-reduced-motion: reduce/);
 });
 
-test('opening intro is skippable, respects reduced motion and always removes itself', () => {
-  const intro = fs.readFileSync(new URL('../src/components/Intro.tsx', import.meta.url), 'utf8');
-  assert.match(intro, /prefers-reduced-motion: reduce/);
-  assert.match(intro, /setTimeout\(close, DURATION_MS\)/);
-  assert.match(intro, /onClick=\{\(\) => setVisible\(false\)\}/);
-  assert.match(css, /\.intro-overlay \{ display: none !important; \}/);
+test('hero entrance plays once, respects reduced motion and never hides content by default', () => {
+  const hero = fs.readFileSync(new URL('../src/components/Hero.tsx', import.meta.url), 'utf8');
+  assert.match(hero, /prefers-reduced-motion: reduce/);
+  assert.match(hero, /sessionStorage/);
+  assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\n  \.hero-play/);
 });
