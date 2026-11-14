@@ -12,7 +12,7 @@ const html = read('index.html');
 
 
 test('hero carries the agreed positioning', () => {
-  assert.match(hero, /the main character/);
+  assert.match(read('src/components/Intro.tsx'), /the main character/);
   assert.match(hero, /Онлайн-школа английского языка/);
   assert.match(hero, /Учи английский через то/);
   assert.doesNotMatch(hero, /gradient/);

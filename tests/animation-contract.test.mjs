@@ -26,9 +26,13 @@ test('scrolling stays smooth without hiding or fading content', () => {
   assert.match(css, /prefers-reduced-motion: reduce/);
 });
 
-test('hero entrance plays once, respects reduced motion and never hides content by default', () => {
+test('intro and hero entrance play once, respect reduced motion and always finish', () => {
+  const state = fs.readFileSync(new URL('../src/intro-state.ts', import.meta.url), 'utf8');
+  const intro = fs.readFileSync(new URL('../src/components/Intro.tsx', import.meta.url), 'utf8');
   const hero = fs.readFileSync(new URL('../src/components/Hero.tsx', import.meta.url), 'utf8');
-  assert.match(hero, /prefers-reduced-motion: reduce/);
-  assert.match(hero, /sessionStorage/);
-  assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\n  \.hero-play/);
+  assert.match(state, /prefers-reduced-motion: reduce/);
+  assert.match(state, /sessionStorage/);
+  assert.match(intro, /setTimeout\(close, DONE_MS\)/);
+  assert.match(hero, /setTimeout\(start, 4000\)/);
+  assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\n  \.hero-wait/);
 });

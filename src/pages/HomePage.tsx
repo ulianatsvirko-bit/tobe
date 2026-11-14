@@ -1,4 +1,5 @@
 import Header from '../components/Header';
+import Intro from '../components/Intro';
 import Hero from '../components/Hero';
 import Pain from '../components/Pain';
 import Method from '../components/Method';
@@ -15,6 +16,7 @@ import Footer from '../components/Footer';
 export default function HomePage() {
   return (
     <main className="min-h-screen">
+      <Intro />
       <Header />
       <Hero />
       <Pain />

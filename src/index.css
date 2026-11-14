@@ -215,36 +215,45 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-/* ---------- hero entrance (plays once; content is visible if it never runs) ---------- */
+/* ---------- opening card (removes itself via timer) ---------- */
+.intro-letter { display: inline-block; opacity: 0; transform: translateY(40%);
+  animation: tobe-letter .75s cubic-bezier(.2,.8,.2,1) forwards !important; animation-duration: .75s !important;
+  animation-delay: calc(var(--i) * 85ms + .15s) !important; }
+.intro-script { clip-path: inset(-30% 100% -30% -10%);
+  animation: tobe-write .9s ease-out forwards !important; animation-duration: .9s !important; animation-delay: .95s !important; }
+.intro-fade { opacity: 0; animation: tobe-fade .6s ease-out forwards !important; animation-duration: .6s !important; animation-delay: .1s !important; }
+.intro-overlay { animation: tobe-lift .8s cubic-bezier(.7,0,.2,1) forwards !important; animation-duration: .8s !important; animation-delay: 2.35s !important; }
+
+/* ---------- hero entrance after the card lifts; visible by default if it never runs ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-play .enter, .hero-play .letter, .hero-play .write, .hero-play .flag .dot,
-  .hero-play .flag .rule, .hero-play .flag .pennant {
-    animation-duration: var(--t, .7s) !important;
+  .hero-wait .enter, .hero-wait .still img, .hero-wait .flag .dot, .hero-wait .flag .rule, .hero-wait .flag .pennant { opacity: 0; }
+  .hero-play .enter, .hero-play .flag .dot, .hero-play .flag .rule, .hero-play .flag .pennant {
+    animation-duration: var(--t, .6s) !important;
     animation-delay: var(--d, 0s) !important;
     animation-fill-mode: both !important;
     animation-iteration-count: 1 !important;
     animation-timing-function: cubic-bezier(.2,.8,.2,1) !important;
   }
   .hero-play .enter { animation-name: tobe-up !important; }
-  .hero-play .letter { display: inline-block; animation-name: tobe-letter !important; --t: .8s; --d: calc(var(--i) * 90ms + .1s); }
-  .hero-play .write { animation-name: tobe-write !important; --t: 1s; --d: .85s; }
-  .hero-play .still img { animation: tobe-photo 1s cubic-bezier(.2,.8,.2,1) 1.5s both !important; }
-  .hero-play .flag .dot { animation-name: tobe-pop !important; --t: .35s; --d: calc(var(--f) * .22s + 2.1s); }
-  .hero-play .flag .rule { animation-name: tobe-draw !important; --t: .45s; --d: calc(var(--f) * .22s + 2.25s); }
+  .hero-play .still img { animation: tobe-photo .7s cubic-bezier(.2,.8,.2,1) .2s both !important; }
+  .hero-play .flag .dot { animation-name: tobe-pop !important; --t: .3s; --d: calc(var(--f) * .15s + .55s); }
+  .hero-play .flag .rule { animation-name: tobe-draw !important; --t: .35s; --d: calc(var(--f) * .15s + .7s); }
   .hero-play .flag.right .rule { transform-origin: left center; }
   .hero-play .flag.left .rule { transform-origin: right center; }
-  .hero-play .flag .pennant { --t: .5s; --d: calc(var(--f) * .22s + 2.5s); }
+  .hero-play .flag .pennant { --t: .4s; --d: calc(var(--f) * .15s + .85s); }
   .hero-play .flag.right .pennant { animation-name: tobe-in-right !important; }
   .hero-play .flag.left .pennant { animation-name: tobe-in-left !important; }
 }
-@keyframes tobe-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-@keyframes tobe-letter { from { opacity: 0; transform: translateY(45%); } to { opacity: 1; transform: none; } }
+@keyframes tobe-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes tobe-letter { from { opacity: 0; transform: translateY(40%); } to { opacity: 1; transform: none; } }
 @keyframes tobe-write { from { clip-path: inset(-30% 100% -30% -10%); } to { clip-path: inset(-30% -15% -30% -10%); } }
-@keyframes tobe-photo { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
-@keyframes tobe-pop { from { transform: scale(0); } 70% { transform: scale(1.4); } to { transform: scale(1); } }
-@keyframes tobe-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes tobe-in-right { from { opacity: 0; translate: -14px 0; } to { opacity: 1; translate: 0 0; } }
-@keyframes tobe-in-left { from { opacity: 0; translate: 14px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes tobe-fade { to { opacity: 1; } }
+@keyframes tobe-lift { to { clip-path: inset(0 0 100% 0); } }
+@keyframes tobe-photo { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes tobe-pop { from { opacity: 0; transform: scale(0); } 70% { opacity: 1; transform: scale(1.4); } to { opacity: 1; transform: scale(1); } }
+@keyframes tobe-draw { from { opacity: 1; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+@keyframes tobe-in-right { from { opacity: 0; translate: -12px 0; } to { opacity: 1; translate: 0 0; } }
+@keyframes tobe-in-left { from { opacity: 0; translate: 12px 0; } to { opacity: 1; translate: 0 0; } }
 
 /* ---------- marquee (the one intentional, always-visible animation) ---------- */
 .marquee { overflow: hidden; white-space: nowrap; }
@@ -320,4 +329,5 @@ input, textarea, button, select {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track { animation: none !important; }
+  .intro-overlay { display: none !important; }
 }
