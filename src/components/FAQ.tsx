@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Title } from './ui';
+import { Title, section } from './ui';
 
 const faqs = [
   {
@@ -32,27 +32,26 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative bg-[var(--color-blush)] pb-20 text-[var(--color-ink)] sm:pb-28" style={{ ['--scallop' as string]: 'var(--color-blush)' }}>
-      <div className="scallop" />
-      <div className="mx-auto max-w-3xl px-4 pt-20 sm:px-6 sm:pt-28 lg:px-8">
-        <img src="/mood/lace-bow.jpg" alt="" aria-hidden="true" className="mx-auto mb-6 w-28 mix-blend-multiply" />
-        <Title kicker="nº 08 · faq" caps="вопрос" script="ответ" />
-        <p className="mt-4 text-center text-sm text-[var(--color-ink)]/55">Не нашёл(ла) ответ? Напиши в Telegram — отвечу лично.</p>
+    <section id="faq" className="border-t border-[var(--color-ink)]/10 bg-[var(--color-cream)] py-24 sm:py-32">
+      <div className={`${section} grid gap-12 lg:grid-cols-[1fr_1.6fr]`}>
+        <div>
+          <Title n="08" label="FAQ" accent="вопросы">Частые</Title>
+          <p className="mt-6 text-[var(--color-ink)]/60">Не нашёл(ла) ответ? Напиши в Telegram — отвечу лично.</p>
+        </div>
 
-        <div className="mt-12 border-t border-[var(--color-wine)]/20">
+        <div className="border-t border-[var(--color-ink)]/15">
           {faqs.map((faq, idx) => (
-            <div key={faq.q} className="border-b border-[var(--color-wine)]/20">
+            <div key={faq.q} className="border-b border-[var(--color-ink)]/15">
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                 aria-expanded={openIndex === idx}
-                className="flex w-full items-center gap-5 py-6 text-left"
+                className="flex w-full items-center justify-between gap-6 py-6 text-left"
               >
-                <span className="kicker shrink-0 text-[var(--color-wine)]">( 0{idx + 1} )</span>
-                <span className="flex-1 text-lg font-medium sm:text-xl">{faq.q}</span>
-                <span className="text-2xl text-[var(--color-wine)]">{openIndex === idx ? '↑' : '↓'}</span>
+                <span className="font-serif text-xl font-medium sm:text-2xl">{faq.q}</span>
+                <span className="text-2xl text-[var(--color-wine)]">{openIndex === idx ? '−' : '+'}</span>
               </button>
-              {openIndex === idx && <p className="pb-7 pl-[4.6rem] leading-relaxed text-[var(--color-ink)]/75">{faq.a}</p>}
+              {openIndex === idx && <p className="max-w-2xl pb-7 leading-relaxed text-[var(--color-ink)]/70">{faq.a}</p>}
             </div>
           ))}
         </div>

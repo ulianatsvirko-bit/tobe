@@ -1,54 +1,44 @@
 import { openLeadForm } from '../lead-form';
-import { Title } from './ui';
+import { Title, card, section, btnPrimary } from './ui';
 
 const steps = [
-  { label: 'month 01', title: 'fashion & style', desc: 'Индустрия моды, бренды, стиль и культура.' },
-  { label: 'month 02', title: 'psychology', desc: 'Решения, привычки, эмоции и общение.' },
-  { label: 'month 03', title: 'business', desc: 'Бренды, стартапы, карьера и переговоры.' },
-  { label: 'final', title: 'твой проект', desc: 'Презентуешь на английском свою идею — коллекцию, исследование или бизнес.' },
+  { label: 'Месяц 1', title: 'Fashion & Style', desc: 'Индустрия моды, бренды, стиль и культура.' },
+  { label: 'Месяц 2', title: 'Psychology', desc: 'Решения, привычки, эмоции и общение.' },
+  { label: 'Месяц 3', title: 'Business', desc: 'Бренды, стартапы, карьера и переговоры.' },
+  { label: 'Финал', title: 'Твой проект', desc: 'Презентуешь на английском свою идею — коллекцию, исследование или бизнес.' },
 ];
 
 export default function Season() {
   return (
-    <section id="season" className="relative bg-[var(--color-blush)] pb-20 sm:pb-28" style={{ ['--scallop' as string]: 'var(--color-blush)' }}>
-      <div className="scallop" />
-      <div className="mx-auto max-w-7xl px-4 pt-20 sm:px-6 sm:pt-28 lg:px-8">
-        <Title kicker="nº 04 · как устроено обучение" caps="один сезон" script="три месяца" />
-        <p className="mx-auto mt-6 max-w-xl text-center text-lg text-[var(--color-ink)]/70">
-          2 занятия в неделю по 90 минут. Каждый месяц — новая тема, в конце — проект, которым не стыдно поделиться.
-        </p>
+    <section id="season" className="paper py-24 sm:py-32">
+      <div className={section}>
+        <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+          <Title n="04" label="Как устроено обучение" accent="три месяца">Один сезон —</Title>
+          <p className="max-w-sm text-lg leading-relaxed text-[var(--color-ink)]/70">
+            2 занятия в неделю по 90 минут. Каждый месяц — новая тема, в конце — проект, которым не стыдно поделиться.
+          </p>
+        </div>
 
-        <ol className="mt-14 grid gap-4 md:grid-cols-4">
+        <ol className="mt-14 grid gap-px bg-[var(--color-ink)]/10 md:grid-cols-4">
           {steps.map((step, idx) => {
             const last = idx === steps.length - 1;
             return (
-              <li key={step.label} className={`ticket px-8 py-7 ${last ? 'velvet text-[var(--color-paper)]' : 'bg-[var(--color-paper)]'}`}>
-                <p className={`kicker ${last ? 'text-[var(--color-gold)]' : 'text-[var(--color-wine)]'}`}>{step.label}</p>
-                <h3 className={`script mt-2 text-4xl ${last ? 'text-[var(--color-blush)]' : 'text-[var(--color-wine)]'}`}>{step.title}</h3>
-                <p className={`mt-2 text-sm leading-relaxed ${last ? 'text-white/85' : 'text-[var(--color-ink)]/70'}`}>{step.desc}</p>
+              <li key={step.label} className={`p-7 ${last ? 'bg-[var(--color-wine)] text-[var(--color-paper)]' : 'bg-[var(--color-paper)]'}`}>
+                <p className={`kicker ${last ? 'text-[var(--color-blush)]/80' : 'text-[var(--color-wine)]'}`}>{step.label}</p>
+                <h3 className="mt-3 font-serif text-2xl font-medium italic">{step.title}</h3>
+                <p className={`mt-2 text-sm leading-relaxed ${last ? 'text-white/80' : 'text-[var(--color-ink)]/65'}`}>{step.desc}</p>
               </li>
             );
           })}
         </ol>
 
-        <img
-          src="/mood/finish-what-you-start.jpg"
-          alt="Коллаж из небоскрёбов с надписью Finish what you start"
-          className="mx-auto mt-12 w-full max-w-5xl mix-blend-multiply"
-        />
-
-        <div className="ticket mx-auto mt-4 flex max-w-4xl flex-col items-center gap-5 bg-[var(--color-ink)] px-10 py-8 text-center text-[var(--color-paper)] sm:flex-row sm:justify-between sm:text-left">
+        <div className={`${card} mt-6 flex flex-col gap-5 p-7 sm:flex-row sm:items-center sm:justify-between`}>
           <div>
-            <p className="kicker text-[var(--color-gold)]">admit one · season 01</p>
-            <p className="script mt-1 text-5xl text-[var(--color-blush)]">старт — январь 2027</p>
-            <p className="mt-1 text-white/70">одна группа · уровень A2–B1 · 5 мест</p>
+            <p className="font-serif text-3xl font-medium">Старт — <em className="text-[var(--color-wine)]">январь 2027</em></p>
+            <p className="mt-1 text-[var(--color-ink)]/60">Одна группа · уровень A2–B1 · 5 мест</p>
           </div>
-          <button
-            type="button"
-            onClick={() => openLeadForm('Групповой формат')}
-            className="shrink-0 rounded-full bg-[var(--color-blush)] px-7 py-3.5 font-semibold text-[var(--color-wine)] hover:bg-white"
-          >
-            забронировать место →
+          <button type="button" onClick={() => openLeadForm('Групповой формат')} className={btnPrimary}>
+            Забронировать место
           </button>
         </div>
       </div>

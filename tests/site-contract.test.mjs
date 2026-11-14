@@ -24,7 +24,8 @@ test('home page shows no unverifiable claims or certificates', () => {
   assert.match(home, /Founder/);
   const founder = read('src/components/Founder.tsx');
   assert.doesNotMatch(founder, /TKT|TESOL|CAE Score/);
-  assert.match(founder, /ЦТ по английскому — 92/);
+  assert.match(founder, /ЦТ по английскому/);
+  assert.match(founder, /92 \/ 100/);
 });
 
 test('lead capture is a real short form backed by the lead API', () => {
