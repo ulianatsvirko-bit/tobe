@@ -66,18 +66,21 @@ h1, h2, h3, h4, h5, h6 {
 .flag { position: absolute; left: 0; right: 0; top: var(--y); height: 0; }
 .flag .dot { position: absolute; left: var(--x); top: -5px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--color-wine); box-shadow: 0 0 0 4px rgba(244,239,232,.85); }
 .flag .rule { position: absolute; top: 0; height: 1px; background: rgba(22,17,18,.55); }
-.flag .pennant { position: absolute; top: -20px; display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; background: var(--color-wine); color: var(--color-paper); padding: 9px 22px 10px 16px; font-family: var(--font-serif); font-size: 21px; line-height: 1; }
-.flag .pennant small { font-family: var(--font-sans); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+.flag .pennant { position: absolute; top: -20px; display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; background: var(--color-wine); color: var(--color-paper); padding: 9px 22px 10px 16px; font-family: var(--font-serif); font-size: 21px; line-height: 1; }
+.flag .pennant small { font-family: var(--font-sans); font-size: 11px; opacity: .65; }
+.flag .pennant .ru { font-family: var(--font-sans); font-size: 13px; opacity: .9; }
+@media (max-width: 1299px) { .flag .pennant small { display: none; } }
 .flag .pennant em { font-style: italic; }
 .flag.right .rule { left: var(--x); right: calc(var(--out) * -1); }
 .flag.right .pennant { left: calc(100% + var(--out)); clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%); padding-right: 26px; }
 .flag.left .rule { right: calc(100% - var(--x)); left: calc(var(--out) * -1); }
 .flag.left .pennant { right: calc(100% + var(--out)); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%); padding-left: 26px; padding-right: 16px; }
 .flag.alt .pennant { background: var(--color-blush); color: var(--color-wine); }
-@media (max-width: 760px) {
-  .still { width: 100%; }
+@media (max-width: 760px) { .still { width: 100%; } }
+@media (max-width: 1160px) {
   .flag .pennant { font-size: 16px; padding: 7px 16px 8px 10px; top: -15px; }
   .flag .pennant small { display: none; }
+  .flag .pennant .ru { font-size: 11px; }
   .flag.right .rule { right: 0; }
   .flag.right .pennant { left: auto; right: -4px; padding-right: 18px; }
   .flag.left .rule { left: 0; }
@@ -225,12 +228,12 @@ h1, h2, h3, h4, h5, h6 {
   .hero-play .enter { animation-name: tobe-up !important; }
   .hero-play .letter { display: inline-block; animation-name: tobe-letter !important; --t: .8s; --d: calc(var(--i) * 90ms + .1s); }
   .hero-play .write { animation-name: tobe-write !important; --t: 1s; --d: .85s; }
-  .hero-play .still img { animation: tobe-photo 1s cubic-bezier(.2,.8,.2,1) 1.1s both !important; }
-  .hero-play .flag .dot { animation-name: tobe-pop !important; --t: .35s; --d: calc(var(--f) * .22s + 1.8s); }
-  .hero-play .flag .rule { animation-name: tobe-draw !important; --t: .45s; --d: calc(var(--f) * .22s + 1.95s); }
+  .hero-play .still img { animation: tobe-photo 1s cubic-bezier(.2,.8,.2,1) 1.5s both !important; }
+  .hero-play .flag .dot { animation-name: tobe-pop !important; --t: .35s; --d: calc(var(--f) * .22s + 2.1s); }
+  .hero-play .flag .rule { animation-name: tobe-draw !important; --t: .45s; --d: calc(var(--f) * .22s + 2.25s); }
   .hero-play .flag.right .rule { transform-origin: left center; }
   .hero-play .flag.left .rule { transform-origin: right center; }
-  .hero-play .flag .pennant { --t: .5s; --d: calc(var(--f) * .22s + 2.2s); }
+  .hero-play .flag .pennant { --t: .5s; --d: calc(var(--f) * .22s + 2.5s); }
   .hero-play .flag.right .pennant { animation-name: tobe-in-right !important; }
   .hero-play .flag.left .pennant { animation-name: tobe-in-left !important; }
 }
