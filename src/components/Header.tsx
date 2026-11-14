@@ -39,7 +39,7 @@ export default function Header() {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 ${solid ? 'bg-[var(--color-cream)]/90 py-3 shadow-sm backdrop-blur-md' : 'bg-transparent py-5'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <button type="button" onClick={() => navigate('/')} className={`display z-50 text-3xl ${solid ? 'text-[var(--color-wine)]' : 'text-[var(--color-blush)]'}`}>
+          <button type="button" onClick={() => navigate('/')} className={`display z-50 text-3xl text-[var(--color-wine)]`}>
             tobe<span className="text-[var(--color-gold)]">.</span>
           </button>
 
@@ -59,7 +59,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => openLeadForm('Пробный урок')}
-            className="hidden rounded-full bg-[var(--color-blush)] px-5 py-2.5 text-sm font-semibold text-[var(--color-wine)] hover:bg-white md:inline-flex"
+            className="hidden rounded-full bg-[var(--color-wine)] px-5 py-2.5 text-sm font-semibold text-[var(--color-paper)] hover:bg-[var(--color-wine-deep)] md:inline-flex"
           >
             пробный урок →
           </button>
@@ -73,7 +73,7 @@ export default function Header() {
             {mobileMenuOpen ? (
               <X className="h-6 w-6 text-[var(--color-wine)]" />
             ) : (
-              <Menu className={`h-6 w-6 ${solid ? 'text-[var(--color-wine)]' : 'text-[var(--color-blush)]'}`} />
+              <Menu className={`h-6 w-6 text-[var(--color-wine)]`} />
             )}
           </button>
         </div>

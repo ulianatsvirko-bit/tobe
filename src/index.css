@@ -52,14 +52,36 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer components {
 /* ---------- textures ---------- */
+/* flat wine with uniform film grain — no gradients */
 .velvet {
-  background-color: #5A1220;
-  background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
-    radial-gradient(ellipse 80% 60% at 20% 15%, rgba(176, 52, 72, 0.55), transparent 60%),
-    radial-gradient(ellipse 70% 70% at 85% 80%, rgba(20, 2, 6, 0.65), transparent 65%),
-    linear-gradient(160deg, #6E1726 0%, #4A0E17 55%, #2A070C 100%);
-  background-blend-mode: soft-light, normal, normal, normal;
+  background-color: #4E0A15;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.16 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* hero: annotated still life with pennant flags */
+.still { position: relative; width: min(560px, 74vw); margin: 18px auto 0; --out: 34px; }
+.still img { width: 100%; mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse 72% 70% at 50% 52%, #000 62%, transparent 100%);
+          mask-image: radial-gradient(ellipse 72% 70% at 50% 52%, #000 62%, transparent 100%); }
+.flag { position: absolute; left: 0; right: 0; top: var(--y); height: 0; }
+.flag .dot { position: absolute; left: var(--x); top: -5px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--color-wine); box-shadow: 0 0 0 4px rgba(244,239,232,.85); }
+.flag .rule { position: absolute; top: 0; height: 1px; background: rgba(22,17,18,.55); }
+.flag .pennant { position: absolute; top: -20px; display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; background: var(--color-wine); color: var(--color-paper); padding: 9px 22px 10px 16px; font-family: var(--font-serif); font-size: 21px; line-height: 1; }
+.flag .pennant small { font-family: var(--font-sans); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; opacity: .75; }
+.flag .pennant em { font-style: italic; }
+.flag.right .rule { left: var(--x); right: calc(var(--out) * -1); }
+.flag.right .pennant { left: calc(100% + var(--out)); clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%); padding-right: 26px; }
+.flag.left .rule { right: calc(100% - var(--x)); left: calc(var(--out) * -1); }
+.flag.left .pennant { right: calc(100% + var(--out)); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%); padding-left: 26px; padding-right: 16px; }
+.flag.alt .pennant { background: var(--color-blush); color: var(--color-wine); }
+@media (max-width: 760px) {
+  .still { width: 100%; }
+  .flag .pennant { font-size: 16px; padding: 7px 16px 8px 10px; top: -15px; }
+  .flag .pennant small { display: none; }
+  .flag.right .rule { right: 0; }
+  .flag.right .pennant { left: auto; right: -4px; padding-right: 18px; }
+  .flag.left .rule { left: 0; }
+  .flag.left .pennant { right: auto; left: -4px; padding-left: 18px; padding-right: 10px; }
 }
 
 .paper {

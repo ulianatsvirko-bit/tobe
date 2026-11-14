@@ -1,42 +1,58 @@
 import { openLeadForm } from '../lead-form';
-import { Photo, btnPrimaryOnDark, btnGhostOnDark, section } from './ui';
+
+const flags = [
+  { side: 'left', alt: false, x: '22%', y: '26%', word: 'моду' },
+  { side: 'right', alt: true, x: '40%', y: '23%', word: 'психологию' },
+  { side: 'right', alt: false, x: '86%', y: '52%', word: 'бизнес' },
+  { side: 'left', alt: true, x: '36%', y: '78%', word: 'живой разговор' },
+];
 
 export default function Hero() {
   return (
-    <section
-      className="relative overflow-hidden bg-[var(--color-wine-deep)] text-[var(--color-paper)]"
-      style={{
-        backgroundImage: 'linear-gradient(100deg, rgba(46,5,11,0.9) 0%, rgba(46,5,11,0.72) 55%, rgba(46,5,11,0.55) 100%), url("/mood/velvet-floral.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className={`${section} grid gap-14 pt-32 pb-20 lg:min-h-[88dvh] lg:grid-cols-[1.25fr_1fr] lg:items-center lg:pt-36`}>
-        <div>
-          <p className="kicker text-[var(--color-blush)]/70">English club · онлайн · мини-группы</p>
+    <section className="paper relative overflow-hidden px-5 pt-28 pb-20 text-center sm:px-8">
+      <div className="mx-auto max-w-5xl">
+        <p className="kicker text-[var(--color-wine)]">Онлайн-школа английского языка</p>
 
-          <h1 className="relative mt-8">
-            <span className="display block text-[28vw] text-[var(--color-blush)] sm:text-[10rem] lg:text-[11.5rem]">tobe.</span>
-            <span className="script mt-[-0.35em] block pl-[8%] text-[12vw] text-white sm:text-7xl lg:text-[5.2rem]">the main character</span>
-          </h1>
+        <h1 className="mt-4" aria-label="tobe. the main character">
+          <span className="display block text-[28vw] text-[var(--color-wine)] sm:text-[11rem] lg:text-[12.5rem]">tobe.</span>
+          <span className="script -mt-[0.5em] block text-[12vw] text-[var(--color-ink)] sm:text-7xl">the main character</span>
+        </h1>
 
-          <p className="mt-10 max-w-md text-lg leading-relaxed text-white/80">
-            Разбираешься в моде, психологии и бизнесе — и параллельно прокачиваешь английский. Мини-группы до 5 человек, онлайн.
-          </p>
-          <p className="mt-3 font-serif text-2xl italic text-[var(--color-blush)]">Знаешь больше. Говоришь свободнее.</p>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <button type="button" onClick={() => openLeadForm('Пробный урок')} className={btnPrimaryOnDark}>
-              Бесплатный пробный урок
-            </button>
-            <a href="#club" className={btnGhostOnDark}>Клуб ToBe Talks</a>
-          </div>
+        <div className="still">
+          <img src="/hero-still.jpg" alt="Туфли, модный журнал, книга по психологии, ежедневник, тетрадь со словами, кофе и очки" />
+          {flags.map((f) => (
+            <div key={f.word} className={`flag ${f.side} ${f.alt ? 'alt' : ''}`} style={{ ['--x' as string]: f.x, ['--y' as string]: f.y }} aria-hidden="true">
+              <span className="rule" />
+              <span className="dot" />
+              <span className="pennant"><small>через</small><em>{f.word}</em></span>
+            </div>
+          ))}
         </div>
 
-        <div className="relative mx-auto w-full max-w-[22rem]">
-          <Photo src="/method-photo.jpg" alt="Ульяна, основатель ToBe." caption="Ульяна, основатель ToBe." tilt={2} ratio="aspect-[3/4]" />
-          <span className="bubble absolute -left-8 bottom-24 hidden sm:inline-block">heyyy, are you coming to class? ☕</span>
+        <h2 className="mx-auto mt-10 max-w-[16ch] font-serif text-[2.6rem] leading-[1.02] font-medium sm:text-6xl" style={{ textWrap: 'balance' }}>
+          Учи английский через то, <em className="text-[var(--color-wine)]">что тебе интересно</em>
+        </h2>
+        <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-[var(--color-ink)]/65">
+          Мода, психология и бизнес — на английском. Мини-группы до 5 человек, живые обсуждения вместо учебника.
+        </p>
+
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <button type="button" onClick={() => openLeadForm('Пробный урок')} className="rounded-full bg-[var(--color-wine)] px-7 py-3.5 font-medium text-[var(--color-paper)] hover:bg-[var(--color-wine-deep)]">
+            Бесплатный пробный урок
+          </button>
+          <a href="#club" className="rounded-full border border-[var(--color-ink)]/25 px-7 py-3.5 font-medium hover:bg-white">
+            Клуб ToBe Talks
+          </a>
         </div>
+
+        <dl className="mx-auto mt-10 flex max-w-xl flex-wrap justify-center gap-9 border-t border-[var(--color-ink)]/12 pt-6 text-sm text-[var(--color-ink)]/60">
+          {[['5 лет', 'преподаю'], ['до 5', 'человек в группе'], ['январь', 'старт сезона']].map(([v, l]) => (
+            <div key={l}>
+              <dt className="font-serif text-2xl font-medium text-[var(--color-ink)]">{v}</dt>
+              <dd>{l}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

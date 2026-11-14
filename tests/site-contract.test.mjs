@@ -13,8 +13,9 @@ const html = read('index.html');
 
 test('hero carries the agreed positioning', () => {
   assert.match(hero, /the main character/);
-  assert.match(hero, /моде, психологии и бизнесе/);
-  assert.match(hero, /Знаешь больше\. Говоришь свободнее\./);
+  assert.match(hero, /Онлайн-школа английского языка/);
+  assert.match(hero, /Учи английский через то/);
+  assert.doesNotMatch(hero, /gradient/);
   assert.doesNotMatch(html, /CLIL Academy/);
 });
 
