@@ -1,147 +1,61 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Palette, MessageSquare, Lightbulb, Globe, ChevronDown, ChevronUp } from 'lucide-react';
+import { openLeadForm } from '../lead-form';
+import { Title } from './ui';
+
+const vocab = ['subdued tones', 'to evoke a sense of…', 'stimulate productivity', 'cluttered vs minimalist'];
 
 export default function LessonExample() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const steps = [
-    {
-      title: "1. Content (Содержание)",
-      subtitle: "Дизайн и Психология",
-      desc: "Как оттенки влияют на уровень кортизола и продуктивность. Почему в ресторанах быстрого питания используют желтый, а в спальнях — приглушенный синий.",
-      icon: Palette,
-    },
-    {
-      title: "2. Communication (Коммуникация)",
-      subtitle: "Профессиональный вокабуляр",
-      desc: "Мы учимся описывать атмосферу и визуальные эффекты на уровне профессионального декоратора.",
-      highlights: [
-        { label: "Key Vocabulary", text: "• Subdued tones (приглушенные тона) — для создания уюта.\n• To evoke a sense of... (вызывать чувство...) — ключевая фраза для презентации концепции.\n• Stimulate productivity (стимулировать продуктивность).\n• Cluttered vs. Minimalist (захламленный против минималистичного)." }
-      ],
-      icon: MessageSquare,
-    },
-    {
-      title: "3. Cognition (Познание)",
-      subtitle: "Пространственное мышление",
-      desc: "Студент не просто читает, он анализирует и создает.",
-      highlights: [
-        { label: "Задание", text: "«Перед тобой бриф: клиент — фрилансер с высоким уровнем стресса. Разработай палитру для его домашнего офиса и аргументируй выбор каждого цвета на английском»." },
-        { label: "Процесс", text: "Включение критического мышления через решение реальной задачи (Problem-based learning)." }
-      ],
-      icon: Lightbulb,
-    },
-    {
-      title: "4. Culture (Культура)",
-      subtitle: "Восприятие цвета в разных странах",
-      desc: "Цвет — это культурный код. Мы изучаем, почему один и тот же цвет может восприниматься по-разному.",
-      highlights: [
-        { label: "Сравнение", text: "Почему белый цвет в западной культуре — это чистота и свадьба, а в некоторых восточных — траур. Как это учитывать при проектировании интерьеров для международных клиентов." }
-      ],
-      icon: Globe,
-    }
-  ];
-
   return (
-    <section id="lesson" className="velvet relative overflow-hidden pt-16 pb-24">
-      <div className="mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden"
-            >
-              <div className="pb-4">
-                <div className="mb-12 text-center">
-                  <h2 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4 text-white drop-shadow-lg">Как проходит урок в ToBe.</h2>
-                  <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
-                    На примере урока про психологию цвета в интерьере
-                  </p>
-                  <div className="mt-4 flex justify-center items-center gap-2">
-                    <span className="h-px w-12 bg-white/40"></span>
-                    <span className="text-xs text-white/80 uppercase tracking-widest italic drop-shadow-sm">The 4C Framework</span>
-                    <span className="h-px w-12 bg-white/40"></span>
-                  </div>
-                  <div className="mt-10 flex justify-center">
-                    <img
-                      src="/lesson-photo.jpg"
-                      alt="Пример урока ToBe"
-                      className="w-full max-w-2xl rounded-sm shadow-2xl object-cover border border-white/20"
-                      style={{ maxHeight: '420px', objectPosition: 'center' }}
-                    />
-                  </div>
-                </div>
+    <section id="lesson" className="velvet relative overflow-hidden py-20 text-[var(--color-paper)] sm:py-28">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <Title kicker="пример урока · 4C framework" caps="как проходит" script="урок" tone="light" />
+        <p className="mx-auto mt-6 max-w-xl text-center text-lg text-white/75">
+          Тема занятия — психология цвета в интерьере. Четыре шага, по которым строится каждый урок ToBe.
+        </p>
 
-                <div className="relative max-w-[90rem] mx-auto">
-                  {/* Vertical Line */}
-                  <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-white/20 -translate-x-1/2"></div>
+        <div className="mt-14 grid gap-6 md:grid-cols-2" style={{ ['--hole' as string]: '#4A0E17' }}>
+          <div className="notebook -rotate-1 text-[var(--color-ink)]">
+            <p className="kicker text-[var(--color-wine)]">01 · content</p>
+            <h3 className="script mt-1 text-4xl text-[var(--color-wine)]">узнаём новое</h3>
+            <p className="mt-2 leading-8 text-[var(--color-ink)]/75">
+              Как оттенки влияют на настроение и продуктивность. Почему в фастфуде используют жёлтый, а в спальнях — приглушённый синий.
+            </p>
+          </div>
 
-                  <div className="space-y-6">
-                    {steps.map((step, idx) => (
-                      <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.2 }}
-                        viewport={{ once: true }}
-                        className={`relative flex flex-col md:flex-row gap-8 items-center group ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
-                      >
-                        {/* Icon Marker */}
-                        <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-black/40 backdrop-blur-md border-2 border-white/40 z-10 flex items-center justify-center shadow-lg group-hover:bg-[var(--color-cherry)] group-hover:border-[var(--color-cherry)] transition-colors duration-500">
-                          <step.icon className="h-5 w-5 text-white" />
-                        </div>
+          <div className="notebook rotate-1 text-[var(--color-ink)]">
+            <p className="kicker text-[var(--color-wine)]">02 · communication</p>
+            <h3 className="script mt-1 text-4xl text-[var(--color-wine)]">говорим как профи</h3>
+            <p className="mt-2 leading-8 text-[var(--color-ink)]/75">Учимся описывать атмосферу языком декоратора:</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {vocab.map((v, i) => (
+                <span key={v} className={`pill ${i % 2 ? 'border border-[var(--color-ink)]/25' : 'bg-[var(--color-ink)] text-[var(--color-paper)]'}`}>{v}</span>
+              ))}
+            </div>
+          </div>
 
-                        {/* Content Card */}
-                        <div className="w-full md:w-[calc(50%-2rem)] ml-12 md:ml-0">
-                          <div className={`bg-[#FDFBF7]/95 backdrop-blur-md p-6 md:p-8 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/40 relative ${idx % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                            {/* Arrow for Desktop */}
-                            <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-[#FDFBF7]/95 backdrop-blur-md border-b border-l border-white/40 transform rotate-45 ${idx % 2 === 0 ? '-right-2 border-r-0 border-t-0' : '-left-2 border-b-0 border-l-0 border-t border-r'}`}></div>
-                            
-                            <h3 className="text-xl font-bold text-gray-900 mb-1">{step.title}</h3>
-                            <div className="text-[var(--color-cherry)] font-medium mb-4">{step.subtitle}</div>
-                            <p className="text-gray-600 leading-relaxed mb-6">
-                              {step.desc}
-                            </p>
+          <div className="notebook rotate-1 text-[var(--color-ink)]">
+            <p className="kicker text-[var(--color-wine)]">03 · cognition</p>
+            <h3 className="script mt-1 text-4xl text-[var(--color-wine)]">решаем задачу</h3>
+            <p className="mt-2 font-serif text-xl italic leading-8 text-[var(--color-ink)]/85">
+              «Клиент — фрилансер с высоким уровнем стресса. Разработай палитру для его домашнего офиса и объясни выбор каждого цвета на английском».
+            </p>
+          </div>
 
-                            {step.highlights && (
-                              <div className={`space-y-4 bg-black/5 p-5 rounded-sm border border-black/5 text-left ${idx % 2 === 0 ? 'md:ml-auto' : ''}`}>
-                                {step.highlights.map((h, i) => (
-                                  <div key={i} className="text-sm">
-                                    <span className="font-bold text-gray-900 block mb-1">{h.label}:</span>
-                                    <span className="text-gray-700 whitespace-pre-line leading-relaxed">{h.text}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-                          </div>
-                        </div>
-                        
-                        {/* Empty space for the other side */}
-                        <div className="hidden md:block w-[calc(50%-2rem)]"></div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          <div className="notebook -rotate-1 text-[var(--color-ink)]">
+            <p className="kicker text-[var(--color-wine)]">04 · culture</p>
+            <h3 className="script mt-1 text-4xl text-[var(--color-wine)]">смотрим шире</h3>
+            <p className="mt-2 leading-8 text-[var(--color-ink)]/75">
+              Почему белый на Западе — цвет свадьбы, а в некоторых странах Востока — траура. И как это учитывать, работая с международными клиентами.
+            </p>
+          </div>
+        </div>
 
-        {/* Toggle Button */}
-        <div className={`text-center ${isOpen ? 'mt-4' : ''}`}>
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="group inline-flex items-center gap-3 rounded-full bg-[var(--color-blush)] px-8 py-4 text-lg font-semibold text-[var(--color-wine)] shadow-xl hover:bg-white"
+        <div className="mt-12 text-center">
+          <button
+            type="button"
+            onClick={() => openLeadForm('Пробный урок')}
+            className="rounded-full bg-[var(--color-blush)] px-8 py-4 font-semibold text-[var(--color-wine)] hover:bg-white"
           >
-            <span>{isOpen ? 'скрыть пример урока' : 'подсмотреть, как проходит урок'}</span>
-            {isOpen ? (
-              <ChevronUp className="w-5 h-5 transition-transform group-hover:-translate-y-1" />
-            ) : (
-              <ChevronDown className="w-5 h-5 transition-transform group-hover:translate-y-1" />
-            )}
+            хочу попробовать такой урок →
           </button>
         </div>
       </div>

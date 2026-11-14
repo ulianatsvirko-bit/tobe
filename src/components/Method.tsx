@@ -1,43 +1,62 @@
 import { Link } from 'react-router-dom';
-import { Title, card, section, btnGhost } from './ui';
+import { Title, Polaroid } from './ui';
 
 const features = [
   {
-    title: 'Сначала тема',
+    n: '01',
+    title: 'сначала тема',
     desc: 'Каждое занятие — про что-то настоящее: почему бренды выбирают определённые цвета, как работают привычки, как устроен стартап.',
   },
   {
-    title: 'Английский — по ходу дела',
+    n: '02',
+    title: 'английский — по ходу дела',
     desc: 'Ты обсуждаешь, споришь, решаешь кейсы. Слова и грамматика запоминаются, потому что нужны прямо сейчас.',
   },
   {
-    title: 'Опоры на каждом шаге',
+    n: '03',
+    title: 'опоры на каждом шаге',
     desc: 'Схемы, картинки и шаблоны фраз помогают говорить, даже если уровень пока не идеальный.',
   },
 ];
 
 export default function Method() {
   return (
-    <section id="method" className="border-t border-[var(--color-ink)]/10 bg-[var(--color-cream)] py-24 sm:py-32">
-      <div className={`${section} grid gap-14 lg:grid-cols-[1fr_1fr] lg:items-start`}>
-        <div>
-          <Title n="02" label="Метод CLIL" accent="Учимся на нём.">Не учим язык.</Title>
-          <p className="mt-8 max-w-md text-lg leading-relaxed text-[var(--color-ink)]/70">
-            CLIL — подход, при котором язык изучают через предмет. Ты одновременно узнаёшь новое и начинаешь свободнее говорить.
-          </p>
-          <img src="/lesson-photo.jpg" alt="Урок ToBe: тема Relationships на экране ноутбука" className="mt-10 aspect-[4/3] w-full max-w-md object-cover" />
-          <p className="mt-3 font-serif text-base italic text-[var(--color-ink)]/60">Настоящий урок: Relationships</p>
-        </div>
+    <section id="method" className="velvet relative overflow-hidden py-20 text-[var(--color-paper)] sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_1fr]">
+          <div>
+            <Title kicker="nº 02 · метод clil" caps="не учим язык." script="учимся на нём" align="left" tone="light" />
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/80">
+              CLIL — подход, при котором язык изучают через предмет. Ты одновременно узнаёшь новое и начинаешь свободнее говорить.
+            </p>
 
-        <div className="grid gap-4 lg:pt-24">
-          {features.map((f, i) => (
-            <div key={f.title} className={`${card} p-7`}>
-              <p className="font-serif text-lg italic text-[var(--color-wine)]">0{i + 1}</p>
-              <h3 className="mt-1 font-serif text-2xl font-medium">{f.title}</h3>
-              <p className="mt-2 leading-relaxed text-[var(--color-ink)]/70">{f.desc}</p>
+            <div className="mt-10 grid gap-5">
+              {features.map((f, i) => (
+                <div key={f.n} className="notebook text-[var(--color-ink)]" style={{ rotate: `${i % 2 ? 0.8 : -0.8}deg`, ['--hole' as string]: '#4A0E17' }}>
+                  <div className="flex items-baseline gap-4">
+                    <span className="display text-4xl text-[var(--color-wine)]">{f.n}</span>
+                    <h3 className="script text-4xl text-[var(--color-wine)]">{f.title}</h3>
+                  </div>
+                  <p className="mt-2 leading-8 text-[var(--color-ink)]/75">{f.desc}</p>
+                </div>
+              ))}
             </div>
-          ))}
-          <Link to="/method" className={`${btnGhost} mt-4 w-fit`}>Подробнее про метод</Link>
+
+            <Link to="/method" className="mt-10 inline-flex rounded-full border border-white/40 px-7 py-3.5 font-semibold hover:bg-white/10">
+              подробнее про метод →
+            </Link>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-md">
+            <Polaroid
+              src="/lesson-photo.jpg"
+              alt="Урок ToBe: тема Relationships на экране ноутбука"
+              caption="real lesson: relationships"
+              rotate={3}
+              imgClassName="aspect-[4/5]"
+            />
+            <span className="bubble absolute -left-4 top-1/3 -rotate-3">wait… this is english class?? 😳</span>
+          </div>
         </div>
       </div>
     </section>
