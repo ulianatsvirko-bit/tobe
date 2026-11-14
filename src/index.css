@@ -190,6 +190,36 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+/* ---------- opening curtain (intentional animation, removes itself via timer) ---------- */
+.intro-letter {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: tobe-rise 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) forwards !important;
+  animation-duration: 0.75s !important;
+  animation-delay: calc(var(--i) * 80ms + 150ms) !important;
+}
+.intro-script {
+  clip-path: inset(-30% 100% -30% -10%);
+  animation: tobe-write 0.9s ease-out forwards !important;
+  animation-duration: 0.9s !important;
+  animation-delay: 0.95s !important;
+}
+.intro-fade {
+  opacity: 0;
+  animation: tobe-fade 0.6s ease-out forwards !important;
+  animation-duration: 0.6s !important;
+  animation-delay: 0.1s !important;
+}
+.intro-overlay {
+  animation: tobe-lift 0.8s cubic-bezier(0.7, 0, 0.2, 1) forwards !important;
+  animation-duration: 0.8s !important;
+  animation-delay: 2.45s !important;
+}
+@keyframes tobe-rise { to { transform: translateY(0); } }
+@keyframes tobe-write { to { clip-path: inset(-30% -15% -30% -10%); } }
+@keyframes tobe-fade { to { opacity: 1; } }
+@keyframes tobe-lift { to { clip-path: inset(0 0 100% 0); } }
+
 /* ---------- marquee (the one intentional, always-visible animation) ---------- */
 .marquee { overflow: hidden; white-space: nowrap; }
 .marquee-track {
@@ -264,4 +294,5 @@ input, textarea, button, select {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track { animation: none !important; }
+  .intro-overlay { display: none !important; }
 }
