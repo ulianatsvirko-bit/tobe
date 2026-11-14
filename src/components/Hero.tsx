@@ -31,9 +31,11 @@ export default function Hero() {
       <div className="mx-auto max-w-5xl">
         <p className="enter kicker text-[var(--color-wine)]" style={d(0)}>Онлайн-школа английского языка</p>
 
-        <h1 className="enter mt-4" style={d(0)}>
-          <span className="display block text-[26vw] text-[var(--color-wine)] sm:text-[10rem] lg:text-[11rem]">tobe.</span>
-          <span className="mx-auto mt-6 block max-w-[18ch] font-serif text-[2.3rem] leading-[1.02] font-medium text-[var(--color-ink)] sm:text-5xl" style={{ textWrap: 'balance' }}>
+        <h1 className="mt-4">
+          <span className="display block text-[26vw] text-[var(--color-wine)] sm:text-[10rem] lg:text-[11rem]">
+            <span id="hero-mark" className="hero-mark inline-block">tobe.</span>
+          </span>
+          <span className="enter mx-auto mt-6 block max-w-[18ch] font-serif text-[2.3rem] leading-[1.02] font-medium text-[var(--color-ink)] sm:text-5xl" style={{ textWrap: 'balance', ...d(0.05) }}>
             Учи английский через то, <em className="text-[var(--color-wine)]">что тебе интересно</em>
           </span>
         </h1>
